@@ -1,0 +1,22 @@
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+[data-radix-navigation-menu-content] {
+  border: none !important;
+  outline: none !important;
+}
+
+[data-radix-navigation-menu-trigger] {
+  border: none !important;
+  outline: none !important;
+}
+
+[data-radix-navigation-menu-trigger]:focus {
+  box-shadow: none !important;
+  border: none !important;
+}
