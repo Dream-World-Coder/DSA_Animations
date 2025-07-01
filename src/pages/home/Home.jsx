@@ -48,9 +48,19 @@ const HomePage = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="group bg-green-500 hover:bg-green-600 text-black font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/25">
+              <button
+                onClick={() => {
+                  const explore = document.getElementById("explore");
+                  if (explore) {
+                    explore.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }
+                }}
+                className="group bg-green-500 hover:bg-green-600 text-black font-semibold px-8 py-4 cursor-pointer
+                rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25"
+              >
                 <span className="flex items-center gap-2">
-                  <Play size={20} />
                   Start Exploring
                   <ChevronRight
                     size={16}
@@ -59,7 +69,10 @@ const HomePage = () => {
                 </span>
               </button>
 
-              <button className="border border-neutral-700 hover:border-neutral-600 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-neutral-800">
+              <button
+                className="border border-neutral-700 hover:border-neutral-600 text-white font-semibold
+                px-8 py-4 rounded-lg transition-all duration-300 hover:bg-neutral-800"
+              >
                 View Documentation
               </button>
             </div>
@@ -70,8 +83,8 @@ const HomePage = () => {
       {/* Navigation Cards */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Algorithm Categories</h2>
+          <div id="explore" className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Topics Covered</h2>
             <p className="text-neutral-400">
               Explore interactive animations by topic and algorithm
             </p>
