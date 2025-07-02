@@ -2,7 +2,7 @@
 
 An interactive web platform for visualizing Data Structures and Algorithms through beautiful animations. Built with React and modern web technologies to make learning DSA concepts intuitive and engaging.
 
-![DSA Animations Banner](https://via.placeholder.com/1200x400/1a1a1a/22c55e?text=DSA+Animations)
+![DSA Animations Banner](https://dsa-experiments.vercel.app/favicon.svg)
 
 ## ✨ Features
 
@@ -15,7 +15,7 @@ An interactive web platform for visualizing Data Structures and Algorithms throu
 
 ## 🎮 Demo
 
-🌐 **Live Demo**: [DSA Animations](https://your-demo-url.com)
+🌐 **Live Demo**: [DSA Animations](https://dsa-experiments.vercel.app)
 
 ## 🚀 Quick Start
 
@@ -28,7 +28,7 @@ An interactive web platform for visualizing Data Structures and Algorithms throu
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/DSA_Animations.git
+git clone https://github.com/dream-world-coder/DSA_Animations.git
 
 # Navigate to project directory
 cd DSA_Animations
@@ -102,27 +102,54 @@ Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
 ```
 DSA_Animations/
-├── public/
-│   ├── favicon.ico
-│   └── index.html
-├── src/
-│   ├── assets/
-│   │   └── data/
-│   │       └── navLinks.js
-│   ├── components/
-│   │   ├── Header/
-│   │   │   └── ShadCNNav.jsx
-│   │   └── ui/
-│   ├── pages/
-│   │   ├── Home/
-│   │   └── algorithms/
-│   ├── styles/
-│   ├── App.jsx
-│   └── main.jsx
+.
+├── components.json
+├── eslint.config.js
+├── index.html
+├── LICENSE
 ├── package.json
-├── vite.config.js
-├── tailwind.config.js
-└── README.md
+├── public
+│   ├── favicon.svg
+│   ├── robots.txt
+│   └── sitemap.xml
+├── README.md
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── assets
+│   │   └── data
+│   │       └── navLinks.js
+│   ├── components
+│   │   ├── Footer
+│   │   │   └── Footer.jsx
+│   │   ├── Header
+│   │   │   ├── Header.jsx
+│   │   │   └── ShadCNNav.jsx
+│   │   ├── Logo.jsx
+│   │   ├── SearchBar.jsx
+│   │   ├── SEO.jsx
+│   │   └── ui
+│   │       ├── button.tsx
+│   │       ├── card.tsx
+│   │       ├── input.tsx
+│   │       └── navigation-menu.tsx
+│   ├── index.css
+│   ├── lib
+│   │   └── utils.ts
+│   ├── main.jsx
+│   └── pages
+│       ├── array
+│       │   └── Kadane.jsx
+│       ├── home
+│       │   └── Home.jsx
+│       └── recursion
+│           ├── Josephous.jsx
+│           ├── QuickSort.jsx
+│           └── TowerOfHanoi.jsx
+├── tsconfig.app.json
+├── tsconfig.json
+├── vercel.json
+└── vite.config.js
 ```
 
 ## 🎨 Design System
@@ -149,15 +176,6 @@ pnpm dev
 
 # Build for production
 pnpm build
-
-# Preview production build
-pnpm preview
-
-# Run linting
-pnpm lint
-
-# Run tests
-pnpm test
 ```
 
 ## 📖 Usage
@@ -229,25 +247,25 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📊 Project Stats
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/DSA_Animations?style=social)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/DSA_Animations?style=social)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/DSA_Animations)
-![GitHub license](https://img.shields.io/github/license/yourusername/DSA_Animations)
+![GitHub stars](https://img.shields.io/github/stars/dream-world-coder/DSA_Animations?style=social)
+![GitHub forks](https://img.shields.io/github/forks/dream-world-coder/DSA_Animations?style=social)
+![GitHub issues](https://img.shields.io/github/issues/dream-world-coder/DSA_Animations)
+![GitHub license](https://img.shields.io/github/license/dream-world-coder/DSA_Animations)
 
 ## 🔗 Links
 
-- **Repository**: [GitHub](https://github.com/yourusername/DSA_Animations)
-- **Live Demo**: [Demo Site](https://your-demo-url.com)
-- **Documentation**: [Wiki](https://github.com/yourusername/DSA_Animations/wiki)
-- **Issues**: [Issue Tracker](https://github.com/yourusername/DSA_Animations/issues)
+- **Repository**: [GitHub](https://github.com/dream-world-coder/DSA_Animations)
+- **Live Demo**: [Demo Site](https://dsa-experiments.vercel.app)
+- **Documentation**: [Wiki](https://github.com/dream-world-coder/DSA_Animations/wiki)
+- **Issues**: [Issue Tracker](https://github.com/dream-world-coder/DSA_Animations/issues)
 
 ---
 
 <div align="center">
   <p>Made with ❤️ for the coding community</p>
   <p>
-    <a href="https://github.com/yourusername">GitHub</a> •
-    <a href="https://linkedin.com/in/yourprofile">LinkedIn</a> •
-    <a href="mailto:your.email@example.com">Email</a>
+    <a href="https://github.com/dream-world-coder">GitHub</a> •
+    <a href="https://linkedin.com/in/subhajitgorai">LinkedIn</a> •
+    <a href="mailto:blog.opencanvas@gmail.com">Email</a>
   </p>
 </div>

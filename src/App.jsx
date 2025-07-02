@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Lenis from "lenis";
 
 import HomePage from "./pages/home/Home";
+import Footer from "./components/Footer/Footer";
 
 // array
 import KadanesAlgorithm from "./pages/array/Kadane";
@@ -50,6 +51,7 @@ function App() {
         />
         <Route path="/recursion/quick-sort" element={<QuickSort />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

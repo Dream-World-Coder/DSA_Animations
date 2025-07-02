@@ -7,6 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { ShadCNHeader as Header } from "../../components/Header/ShadCNNav";
 
 const TowerOfHanoi = () => {
@@ -81,7 +83,16 @@ const TowerOfHanoi = () => {
 
     for (const move of moves) {
       await animateMove(move.from, move.to, move.disk);
+      await new Promise((res) => setTimeout(res, animationSpeed));
     }
+
+    /*
+    moves.forEach((move) => {
+      setTimeout(async () => {
+        await animateMove(move.from, move.to, move.disk);
+      }, 300);
+    });
+    */
 
     setIsAnimating(false);
   };
@@ -106,7 +117,7 @@ const TowerOfHanoi = () => {
       <Header />
 
       {/* animation */}
-      <div className="bg-neutral-800 rounded-3xl p-8 border border-neutral-800 flex-1">
+      <div className="bg-neutral-800 rounded-3xl p-8 border border-neutral-800 w-full">
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">
@@ -127,7 +138,7 @@ const TowerOfHanoi = () => {
               disabled={isAnimating}
               className="bg-neutral-800 text-white px-3 py-1 rounded-lg border border-neutral-600 focus:border-white focus:outline-none"
             >
-              {[3, 4, 5, 6, 7, 8].map((n) => (
+              {[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => (
                 <option key={n} value={n}>
                   {n}
                 </option>
@@ -261,18 +272,56 @@ const TowerOfHanoi = () => {
       {/* description */}
       <Card className="w-full bg-neutral-800 text-white border-none shadow-none">
         <CardHeader className="size-full">
-          <CardTitle>Title</CardTitle>
-          <CardDescription>Description</CardDescription>
+          <CardTitle>Tower of Hanoi</CardTitle>
+          <CardDescription>
+            A classic recursive puzzle where disks must be moved between rods
+            following strict rules.
+          </CardDescription>
         </CardHeader>
         <CardContent className="size-full">
-          <p>Content</p>
+          <p>
+            The Tower of Hanoi consists of three rods and a number of disks of
+            different sizes, which can slide onto any rod. The puzzle starts
+            with all disks stacked in order on one rod (largest on bottom,
+            smallest on top). The objective is to move the entire stack to
+            another rod, obeying these rules:
+          </p>
+          <ul className="list-disc list-inside mt-2 space-y-1">
+            <li>Only one disk can be moved at a time.</li>
+            <li>
+              Each move involves taking the top disk from one rod and placing it
+              on another.
+            </li>
+            <li>No disk may be placed on top of a smaller disk.</li>
+          </ul>
+          <p className="mt-2">
+            This implementation uses animation to show each move step-by-step as
+            calculated by the recursive algorithm.
+          </p>
         </CardContent>
-        <CardFooter>
-          <p>Footer</p>
+        <CardFooter className="overflow-x-auto">
+          <SyntaxHighlighter language="python" style={oneDark} wrapLines>
+            {`
+def tower_of_hanoi(n, src, dest, aux):
+  if n <= 0:
+      raise ValueError(f"{n} is invalid. Number of disks must be > 0")
+
+  if n == 1:
+      print(f"Moved disk 1 from {src} to {dest}")
+      return
+
+  # Move n-1 disks from source to auxiliary
+  tower_of_hanoi(n - 1, src, aux, dest)
+
+  # Move the nth disk to destination
+  print(f"Moved disk {n} from {src} to {dest}")
+
+  # Move the n-1 disks from auxiliary to destination
+  tower_of_hanoi(n - 1, aux, dest, src)
+                `}
+          </SyntaxHighlighter>
         </CardFooter>
       </Card>
-
-      {/* footer */}
     </div>
   );
 };

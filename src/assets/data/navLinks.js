@@ -2,7 +2,10 @@ export const navLinks = [
   {
     title: "Array & LinkedList",
     hrefPrefix: "/array-linkedlist",
-    dropdownElements: [{ title: "Kadane's Algorithm", href: "/kadane-algo" }],
+    dropdownElements: [
+      { title: "Kadane's Algorithm", href: "/kadane-algo" },
+      { title: "Dynamic Array", href: "/dynamic-array" },
+    ],
   },
   {
     title: "Recursion",
@@ -25,7 +28,10 @@ export const navLinks = [
   {
     title: "Tree",
     hrefPrefix: "/tree",
-    dropdownElements: [{ title: "Red-Black Tree", href: "/red-black-tree" }],
+    dropdownElements: [
+      { title: "Level Order Traversal", href: "/level-order-traversal" },
+      { title: "Red-Black Tree", href: "/red-black-tree" },
+    ],
   },
   {
     title: "Graph",

@@ -1,5 +1,5 @@
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   ChevronDown,
   Code2,
@@ -47,14 +47,11 @@ export function ShadCNHeader({ abs = true }) {
 
   return (
     <header
-      className={`${abs ? "absolute" : "fixed"} top-0 left-0 right-0 z-50 w-full bg-neutral-900 backdrop-blur-sm text-white`}
+      className={`${abs ? "absolute" : "fixed"} top-0 left-0 right-0 z-50 w-full bg-neutral-900 backdrop-blur-sm text-white border-b border-neutral-800`}
     >
       <div className="container flex h-16 mx-auto items-center justify-between px-6">
         <div className="flex items-center space-x-2">
-          <NavLink
-            to="/"
-            className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
-          >
+          <NavLink to="/" className="flex items-center space-x-2">
             <AppLogo
               width={32}
               height={32}

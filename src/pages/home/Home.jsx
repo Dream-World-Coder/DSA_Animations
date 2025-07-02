@@ -235,7 +235,7 @@ const HomePage = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:blog.opencanvas@gmail.com"
               className="group flex items-center gap-3 bg-neutral-800 hover:bg-neutral-700 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
             >
               <Mail size={20} className="text-green-400" />
@@ -247,7 +247,7 @@ const HomePage = () => {
             </a>
 
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/dream-world-coder"
               className="group flex items-center gap-3 bg-neutral-800 hover:bg-neutral-700 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
             >
               <Github size={20} className="text-green-400" />
@@ -259,7 +259,7 @@ const HomePage = () => {
             </a>
 
             <a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://linkedin.com/in/subhajitgorai"
               className="group flex items-center gap-3 bg-neutral-800 hover:bg-neutral-700 px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
             >
               <Linkedin size={20} className="text-green-400" />
@@ -283,7 +283,7 @@ const HomePage = () => {
               </p>
             </div>
 
-            <div className="flex gap-6">
+            {/* <div className="flex gap-6">
               <a
                 href="#"
                 className="text-neutral-400 hover:text-white transition-colors text-sm"
@@ -302,7 +302,7 @@ const HomePage = () => {
               >
                 Support
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
