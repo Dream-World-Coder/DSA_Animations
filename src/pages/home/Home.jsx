@@ -11,7 +11,11 @@ import {
 } from "lucide-react";
 import { ShadCNHeader as Header } from "../../components/Header/ShadCNNav";
 import { navLinks } from "../../assets/data/navLinks";
+// import { WireframeLines } from "../../components/Decorum";
 
+/**
+ * ADD SEO Data here
+ */
 const HomePage = memo(function HomePage() {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -22,6 +26,8 @@ const HomePage = memo(function HomePage() {
 
   return (
     <div className="min-h-screen bg-neutral-900 text-white">
+      {/* <WireframeLines top={40} left={40} right={40} bottom={40} /> */}
+
       <Header abs={false} />
 
       {/* Hero Section */}
@@ -38,13 +44,19 @@ const HomePage = memo(function HomePage() {
             <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent leading-tight">
               Visualize Algorithms,
               <br />
-              <span className="text-green-400">Master DSA</span>
+              <span className="text-green-400">Build Intuition</span>
             </h1>
 
-            <p className="text-xl text-neutral-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Explore the beauty of Data Structures and Algorithms through
-              interactive animations. Watch complex concepts come to life with
-              step-by-step visualizations.
+            <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+              If you love to visualize algorithms and learn intuitively then you
+              are in the right place. This platform features animations of
+              beautiful algorithms related to Data Structures and Algorithms. I
+              hope these help you grasp things better!
+              <br />
+              Of course, the world of algorithms is vast and fascinating — far
+              beyond what one person can animate alone. So if you're
+              enthusiastic, consider contributing and help make this an even
+              better resource for everyone.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -69,12 +81,13 @@ const HomePage = memo(function HomePage() {
                 </span>
               </button>
 
-              <button
+              <a
+                href="https://github.com/Dream-World-Coder/DSA_Animations/blob/main/README.md"
                 className="border border-neutral-700 hover:border-neutral-600 text-white font-semibold
                 px-8 py-4 rounded-lg transition-all duration-300 hover:bg-neutral-800"
               >
                 View Documentation
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -198,10 +211,11 @@ const HomePage = memo(function HomePage() {
                 <div className="font-mono text-sm space-y-2">
                   <div className="text-purple-400">
                     function <span className="text-white">quickSort</span>
-                    <span className="text-yellow-400">(arr)</span>{" "}
+                    <span className="text-yellow-400">(arr)</span>
+                    {"{"}
                   </div>
                   <div className="text-neutral-400 pl-4">
-                    // Visualization magic happens here
+                    {/* // Animation happens here */}
                   </div>
                   <div className="text-blue-400 pl-4">
                     if (arr.length &lt;= 1) return arr;
@@ -212,7 +226,7 @@ const HomePage = memo(function HomePage() {
                   <div className="text-neutral-400 pl-4">
                     // ... algorithm steps
                   </div>
-                  <div className="text-purple-400"></div>
+                  <div className="text-purple-400">{"}"}</div>
                 </div>
               </div>
 

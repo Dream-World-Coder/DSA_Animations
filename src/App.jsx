@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 
 import HomePage from "./pages/home/Home";
 import Footer from "./components/Footer/Footer";
+import NotFoundPage from "./pages/NotFound";
 
 // array
 import KadanesAlgorithm from "./pages/array/Kadane";
@@ -54,6 +55,8 @@ function App() {
             element={<JosephusProblem />}
           />
           <Route path="/recursion/quick-sort" element={<QuickSort />} />
+
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />
       </Router>
