@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Lenis from "lenis";
+import { HelmetProvider } from "react-helmet-async";
+import { Analytics } from "@vercel/analytics/react";
 
 import HomePage from "./pages/home/Home";
 import Footer from "./components/Footer/Footer";
@@ -33,26 +35,29 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+    <HelmetProvider>
+      <Router>
+        <Analytics />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
-        {/* array */}
-        <Route
-          path="/array-linkedlist/kadane-algo"
-          element={<KadanesAlgorithm />}
-        />
+          {/* array */}
+          <Route
+            path="/array-linkedlist/kadane-algo"
+            element={<KadanesAlgorithm />}
+          />
 
-        {/* recursion */}
-        <Route path="/recursion/tower-of-hanoi" element={<TowerOfHanoi />} />
-        <Route
-          path="/recursion/josephus-problem"
-          element={<JosephusProblem />}
-        />
-        <Route path="/recursion/quick-sort" element={<QuickSort />} />
-      </Routes>
-      <Footer />
-    </Router>
+          {/* recursion */}
+          <Route path="/recursion/tower-of-hanoi" element={<TowerOfHanoi />} />
+          <Route
+            path="/recursion/josephus-problem"
+            element={<JosephusProblem />}
+          />
+          <Route path="/recursion/quick-sort" element={<QuickSort />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </HelmetProvider>
   );
 }
 

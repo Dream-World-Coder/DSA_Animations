@@ -1,13 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { ShadCNHeader as Header } from "../../components/Header/ShadCNNav";
+import Description from "../../components/utils/Description";
 
 const JosephusProblem = () => {
   const [n, setN] = useState(7); // number of people
@@ -19,6 +12,35 @@ const JosephusProblem = () => {
   const [eliminationOrder, setEliminationOrder] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [survivor, setSurvivor] = useState(null);
+
+  const descriptionData = {
+    heading: "The Josephus Problem",
+    subheading: "A classic problem in mathematics and computer science",
+    summary: `The Josephus problem is a theoretical problem related to a certain
+    counting-out game. People are standing in a circle waiting to be
+    executed. Counting begins at a specified point in the circle and
+    proceeds around the circle in a specified direction. After a specified
+    number of people are skipped, the next person is executed. The
+    procedure is repeated with the remaining people, starting after the
+    person who was just executed, until only one person remains, and is
+    freed.`,
+    history: `Named after Flavius Josephus, a Jewish historian who lived in the 1st century.`,
+    lang: "python",
+    code: `
+    # recursive
+    def josephus(n, k):
+    if n == 1:
+    return 0
+    return (josephus(n - 1, k) + k) % n
+
+    # iterative
+    def josephus(n, k):
+    res = 0
+    for i in range(2, n + 1):
+    res = (res + k) % i
+    return res  # 0-based
+    `,
+  };
 
   // Initialize people
   const initializePeople = useCallback((numPeople) => {
@@ -86,7 +108,7 @@ const JosephusProblem = () => {
             setPeople((prevPeople) =>
               prevPeople.map((person, index) => ({
                 ...person,
-                eliminated: index === targetIndex,
+                eliminated: person.eliminated ? true : index === targetIndex,
                 isTarget: false,
               })),
             );
@@ -188,7 +210,7 @@ const JosephusProblem = () => {
               disabled={isAnimating}
               className="bg-neutral-800 text-white px-3 py-1 rounded-lg border border-neutral-600 focus:border-white focus:outline-none"
             >
-              {[5, 6, 7, 8, 9, 10, 12, 15, 20].map((num) => (
+              {[5, 6, 7, 8, 9, 10, 12, 15, 20, 51, 100].map((num) => (
                 <option key={num} value={num}>
                   {num}
                 </option>
@@ -204,7 +226,7 @@ const JosephusProblem = () => {
               disabled={isAnimating}
               className="bg-neutral-800 text-white px-3 py-1 rounded-lg border border-neutral-600 focus:border-white focus:outline-none"
             >
-              {[2, 3, 4, 5, 6, 7, 8].map((num) => (
+              {[2, 3, 4, 5, 6, 7, 8, 12, 13, 15].map((num) => (
                 <option key={num} value={num}>
                   {num}
                 </option>
@@ -224,6 +246,7 @@ const JosephusProblem = () => {
               <option value={800}>Medium</option>
               <option value={400}>Fast</option>
               <option value={200}>Very Fast</option>
+              <option value={50}>Lightning</option>
             </select>
           </div>
 
@@ -266,7 +289,7 @@ const JosephusProblem = () => {
                       x={200 + pos.x}
                       y={200 + pos.y + 5}
                       textAnchor="middle"
-                      className="text-white text-sm font-bold fill-white"
+                      className={`text-sm font-bold ${person.eliminated ? "text-neutral-300 fill-neutral-300" : "text-white fill-white"}`}
                     >
                       {person.id}
                     </text>
@@ -324,7 +347,7 @@ const JosephusProblem = () => {
           </div>
         </div>
 
-        {/* Formula Explanation */}
+        {/* Formula */}
         <div className="text-center text-neutral-300 text-sm">
           <p>
             The Josephus problem: n people in a circle, eliminate every k-th
@@ -336,33 +359,7 @@ const JosephusProblem = () => {
         </div>
       </div>
 
-      {/* Description */}
-      <Card className="w-full bg-neutral-800 text-white border-none shadow-none">
-        <CardHeader>
-          <CardTitle>The Josephus Problem</CardTitle>
-          <CardDescription className="text-neutral-400">
-            A classic problem in mathematics and computer science
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-neutral-300 leading-relaxed">
-            The Josephus problem is a theoretical problem related to a certain
-            counting-out game. People are standing in a circle waiting to be
-            executed. Counting begins at a specified point in the circle and
-            proceeds around the circle in a specified direction. After a
-            specified number of people are skipped, the next person is executed.
-            The procedure is repeated with the remaining people, starting after
-            the person who was just executed, until only one person remains, and
-            is freed.
-          </p>
-        </CardContent>
-        <CardFooter>
-          <p className="text-neutral-400 text-sm">
-            Named after Flavius Josephus, a Jewish historian who lived in the
-            1st century.
-          </p>
-        </CardFooter>
-      </Card>
+      <Description dataObj={descriptionData} />
     </div>
   );
 };

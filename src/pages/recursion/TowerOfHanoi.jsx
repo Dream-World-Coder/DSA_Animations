@@ -158,6 +158,7 @@ const TowerOfHanoi = () => {
               <option value={800}>Medium</option>
               <option value={400}>Fast</option>
               <option value={200}>Very Fast</option>
+              <option value={50}>Lightning</option>
             </select>
           </div>
 
@@ -303,21 +304,12 @@ const TowerOfHanoi = () => {
           <SyntaxHighlighter language="python" style={oneDark} wrapLines>
             {`
 def tower_of_hanoi(n, src, dest, aux):
-  if n <= 0:
-      raise ValueError(f"{n} is invalid. Number of disks must be > 0")
-
-  if n == 1:
-      print(f"Moved disk 1 from {src} to {dest}")
-      return
-
-  # Move n-1 disks from source to auxiliary
-  tower_of_hanoi(n - 1, src, aux, dest)
-
-  # Move the nth disk to destination
-  print(f"Moved disk {n} from {src} to {dest}")
-
-  # Move the n-1 disks from auxiliary to destination
-  tower_of_hanoi(n - 1, aux, dest, src)
+  if n==1:
+    print(f'moved 1 from {src} to {dest}')
+    return
+  tower_of_hanoi(n-1, src=src, dest=aux, aux=dest)
+  print(f'moved {n} from {src} to {dest}')
+  tower_of_hanoi(n-1, src=aux, dest=dest, aux=src)
                 `}
           </SyntaxHighlighter>
         </CardFooter>

@@ -1,1 +1,51 @@
-// make a react helmet component that takes a obj as prop
+import { Helmet } from "react-helmet-async";
+
+const SEOData = ({ data = {} }) => {
+  const {
+    title,
+    description,
+    canonical,
+    noIndex,
+    openGraph = {},
+    twitter = {},
+    schema = null,
+  } = data;
+
+  return (
+    <Helmet>
+      {title && <title>{title}</title>}
+      {description && <meta name="description" content={description} />}
+      {canonical && <link rel="canonical" href={canonical} />}
+      {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+      {/* OpenGraph Tags */}
+      {openGraph.title && (
+        <meta property="og:title" content={openGraph.title} />
+      )}
+      {openGraph.description && (
+        <meta property="og:description" content={openGraph.description} />
+      )}
+      {openGraph.url && <meta property="og:url" content={openGraph.url} />}
+      {openGraph.image && (
+        <meta property="og:image" content={openGraph.image} />
+      )}
+      {openGraph.type && <meta property="og:type" content={openGraph.type} />}
+
+      {/* Twitter Tags */}
+      {twitter.card && <meta name="twitter:card" content={twitter.card} />}
+      {twitter.site && <meta name="twitter:site" content={twitter.site} />}
+      {twitter.title && <meta name="twitter:title" content={twitter.title} />}
+      {twitter.description && (
+        <meta name="twitter:description" content={twitter.description} />
+      )}
+      {twitter.image && <meta name="twitter:image" content={twitter.image} />}
+
+      {/* Schema.org JSON-LD */}
+      {schema && (
+        <script type="application/ld+json">{JSON.stringify(schema)}</script>
+      )}
+    </Helmet>
+  );
+};
+
+export default SEOData;
