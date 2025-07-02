@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { NavLink } from "react-router-dom";
 import {
   ChevronDown,
@@ -25,7 +25,7 @@ const getIcon = (title) => {
   return iconMap[title] && null; // icon not needed
 };
 
-export function ShadCNHeader({ abs = true }) {
+export const ShadCNHeader = memo(function ShadCNHeader({ abs = true }) {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -206,4 +206,4 @@ export function ShadCNHeader({ abs = true }) {
       )}
     </header>
   );
-}
+});

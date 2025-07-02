@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { NavLink } from "react-router-dom";
 import {
   ChevronRight,
@@ -12,7 +12,7 @@ import {
 import { ShadCNHeader as Header } from "../../components/Header/ShadCNNav";
 import { navLinks } from "../../assets/data/navLinks";
 
-const HomePage = () => {
+const HomePage = memo(function HomePage() {
   const [hoveredCard, setHoveredCard] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -308,6 +308,6 @@ const HomePage = () => {
       </footer>
     </div>
   );
-};
+});
 
 export default HomePage;

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   Card,
   CardContent,
@@ -9,7 +10,7 @@ import {
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-export default function Description({ dataObj }) {
+const Description = memo(function Description({ dataObj }) {
   const { heading, subheading, summary, history, lang, code } = dataObj;
 
   return (
@@ -43,4 +44,5 @@ export default function Description({ dataObj }) {
       </CardFooter>
     </Card>
   );
-}
+});
+export default Description;

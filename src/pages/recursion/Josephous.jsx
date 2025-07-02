@@ -1,10 +1,10 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { ShadCNHeader as Header } from "../../components/Header/ShadCNNav";
 import Description from "../../components/utils/Description";
 import SpeedControls from "../../components/utils/SpeedControl";
 import SEOData from "../../components/SEO";
 
-const JosephusProblem = () => {
+const JosephusProblem = memo(function JosephusProblem() {
   const [n, setN] = useState(7); // number of people
   const [k, setK] = useState(3); // step size
   const [people, setPeople] = useState([]);
@@ -365,6 +365,6 @@ const JosephusProblem = () => {
       </div>
     </>
   );
-};
+});
 
 export default JosephusProblem;

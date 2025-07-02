@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { Helmet } from "react-helmet-async";
 
-const SEOData = ({ data = {} }) => {
+const SEOData = memo(function SEOData({ data = {} }) {
   const {
     title,
     description,
@@ -46,6 +47,6 @@ const SEOData = ({ data = {} }) => {
       )}
     </Helmet>
   );
-};
+});
 
 export default SEOData;

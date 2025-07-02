@@ -1,8 +1,10 @@
-export default function SpeedControls(
+import { memo } from "react";
+
+const SpeedControls = memo(function SpeedControls({
   animationSpeed,
   setAnimationSpeed,
   isAnimating,
-) {
+}) {
   return (
     <div className="flex items-center gap-2">
       <label className="text-white font-medium">Speed:</label>
@@ -20,4 +22,5 @@ export default function SpeedControls(
       </select>
     </div>
   );
-}
+});
+export default SpeedControls;
