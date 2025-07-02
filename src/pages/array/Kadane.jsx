@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ShadCNHeader as Header } from "../../components/Header/ShadCNNav";
+import SpeedControls from "../../components/utils/SpeedControl";
 
 const KadanesAlgorithm = () => {
   const [array, setArray] = useState([-2, 1, -3, 4, -1, 2, 1, -5, 4]);
@@ -21,7 +22,7 @@ const KadanesAlgorithm = () => {
   const [maxEnd, setMaxEnd] = useState(0);
   const [currentStart, setCurrentStart] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [animationSpeed, setAnimationSpeed] = useState(1000);
+  const [animationSpeed, setAnimationSpeed] = useState(800);
   const [steps, setSteps] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
@@ -174,7 +175,7 @@ const KadanesAlgorithm = () => {
       <Header />
 
       {/* Animation */}
-      <div className="bg-neutral-800 rounded-3xl p-8 border border-neutral-800 flex-1 w-full">
+      <div className="bg-neutral-800 rounded-lg p-8 border border-neutral-800 flex-1 w-full">
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">
@@ -221,20 +222,11 @@ const KadanesAlgorithm = () => {
             />
           </div>
 
-          <div className="flex items-center gap-2">
-            <label className="text-white font-medium">Speed:</label>
-            <select
-              value={animationSpeed}
-              onChange={(e) => setAnimationSpeed(parseInt(e.target.value))}
-              disabled={isAnimating}
-              className="bg-neutral-800 text-white px-3 py-1 rounded-lg border border-neutral-600 focus:border-white focus:outline-none"
-            >
-              <option value={1500}>Slow</option>
-              <option value={1000}>Medium</option>
-              <option value={600}>Fast</option>
-              <option value={300}>Very Fast</option>
-            </select>
-          </div>
+          <SpeedControls
+            animationSpeed={animationSpeed}
+            setAnimationSpeed={setAnimationSpeed}
+            isAnimating={isAnimating}
+          />
 
           <button
             onClick={startAnimation}
@@ -253,8 +245,8 @@ const KadanesAlgorithm = () => {
           </button>
         </div>
 
-        {/* Array Visualization */}
-        <div className="bg-black p-10 rounded-2xl mb-8">
+        {/* Array Visualization / game board */}
+        <div className="bg-black p-10 rounded-lg mb-8">
           <div className="flex justify-center items-center gap-2 mb-8 flex-wrap">
             {array.map((element, index) => (
               <div

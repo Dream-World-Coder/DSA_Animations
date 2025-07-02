@@ -1,4 +1,11 @@
 import { memo } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const SpeedControls = memo(function SpeedControls({
   animationSpeed,
@@ -8,19 +15,40 @@ const SpeedControls = memo(function SpeedControls({
   return (
     <div className="flex items-center gap-2">
       <label className="text-white font-medium">Speed:</label>
-      <select
-        value={animationSpeed}
-        onChange={(e) => setAnimationSpeed(parseInt(e.target.value))}
+      <Select
+        value={animationSpeed.toString()}
+        onValueChange={(value) => setAnimationSpeed(parseInt(value))}
         disabled={isAnimating}
-        className="bg-neutral-800 text-white px-3 py-1 rounded-lg border border-neutral-600 focus:border-white focus:outline-none"
       >
-        <option value={1200}>Slow</option>
-        <option value={800}>Medium</option>
-        <option value={400}>Fast</option>
-        <option value={200}>Very Fast</option>
-        <option value={50}>Lightning</option>
-      </select>
+        <SelectTrigger className="w-32 bg-neutral-800 text-white border-neutral-600 focus:border-white">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent className="bg-neutral-800 border-neutral-600">
+          <SelectItem value="2000" className="text-white hover:bg-neutral-700">
+            Super Slow
+          </SelectItem>
+          <SelectItem value="1200" className="text-white hover:bg-neutral-700">
+            Slow
+          </SelectItem>
+          <SelectItem value="800" className="text-white hover:bg-neutral-700">
+            Medium
+          </SelectItem>
+          <SelectItem value="400" className="text-white hover:bg-neutral-700">
+            Fast
+          </SelectItem>
+          <SelectItem value="200" className="text-white hover:bg-neutral-700">
+            Very Fast
+          </SelectItem>
+          <SelectItem value="50" className="text-white hover:bg-neutral-700">
+            Lightning
+          </SelectItem>
+          <SelectItem value="1" className="text-white hover:bg-neutral-700">
+            Instant
+          </SelectItem>
+        </SelectContent>
+      </Select>
     </div>
   );
 });
+
 export default SpeedControls;

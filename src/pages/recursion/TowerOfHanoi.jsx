@@ -1,4 +1,12 @@
 import { useState, useEffect, useCallback, memo } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import { ShadCNHeader as Header } from "../../components/Header/ShadCNNav";
 import SpeedControls from "../../components/utils/SpeedControl";
 import Description from "../../components/utils/Description";
@@ -151,7 +159,7 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
         <Header />
 
         {/* animation */}
-        <div className="bg-neutral-800 rounded-3xl p-8 border border-neutral-800 w-full">
+        <div className="bg-neutral-800 rounded-lg p-8 border border-neutral-800 w-full">
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">
@@ -166,18 +174,26 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
           <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
             <div className="flex items-center gap-2">
               <label className="text-white font-medium">Disks:</label>
-              <select
-                value={disks}
-                onChange={(e) => setDisks(parseInt(e.target.value))}
+              <Select
+                value={disks.toString()}
+                onValueChange={(value) => setDisks(parseInt(value))}
                 disabled={isAnimating}
-                className="bg-neutral-800 text-white px-3 py-1 rounded-lg border border-neutral-600 focus:border-white focus:outline-none"
               >
-                {[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => (
-                  <option key={n} value={n}>
-                    {n}
-                  </option>
-                ))}
-              </select>
+                <SelectTrigger className="bg-neutral-800 text-white px-3 py-1 rounded-md border border-neutral-600 focus:border-white focus:outline-none">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="bg-neutral-800 border-neutral-600">
+                  {[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => (
+                    <SelectItem
+                      key={n}
+                      value={n.toString()}
+                      className="text-white hover:bg-neutral-700"
+                    >
+                      {n}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
 
             <SpeedControls
@@ -189,7 +205,7 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
             <button
               onClick={startAnimation}
               disabled={isAnimating}
-              className="bg-white text-black px-6 py-2 rounded-lg font-semibold hover:bg-neutral-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
+              className="bg-white text-black px-6 py-2 rounded-md font-semibold hover:bg-neutral-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
             >
               {isAnimating ? "Solving..." : "Start"}
             </button>
@@ -197,17 +213,14 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
             <button
               onClick={reset}
               disabled={isAnimating}
-              className="bg-neutral-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-neutral-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
+              className="bg-neutral-700 text-white px-6 py-2 rounded-md font-semibold hover:bg-neutral-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
             >
               Reset
             </button>
           </div>
 
           {/* Game Board */}
-          <div
-            className="flex justify-center items-end gap-8 mb-8 bg-black p-10 rounded-2xl"
-            style={{ height: "400px" }}
-          >
+          <div className="flex justify-center items-end gap-8 mb-8 bg-black p-10 rounded-lg min-h-[400px]">
             {towers.map((tower, towerIndex) => (
               <div key={towerIndex} className="flex flex-col items-center">
                 {/* Tower Label */}
@@ -230,7 +243,7 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
                       height: "20px",
                     }}
                   />
-                  {/* base style placeholder height  */}
+                  {/* placeholder [important]  */}
                   <div
                     className="opacity-0"
                     style={{

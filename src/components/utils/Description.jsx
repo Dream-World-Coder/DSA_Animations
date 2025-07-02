@@ -14,7 +14,7 @@ const Description = memo(function Description({ dataObj }) {
   const { heading, subheading, summary, history, lang, code } = dataObj;
 
   return (
-    <Card className="w-full bg-neutral-800 text-white border-none shadow-none">
+    <Card className="w-full bg-neutral-800 text-white border-none shadow-none rounded-lg">
       <CardHeader>
         {heading && <CardTitle>{heading}</CardTitle>}
         {subheading && (
