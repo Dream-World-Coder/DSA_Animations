@@ -24,9 +24,9 @@ export default function Description({ dataObj }) {
       </CardHeader>
 
       {summary && (
-        <CardContent>
-          <p className="text-neutral-300 leading-relaxed">{summary}</p>
-        </CardContent>
+        <CardContent
+          dangerouslySetInnerHTML={{ __html: summary }}
+        ></CardContent>
       )}
 
       <CardFooter className="flex flex-col items-start">

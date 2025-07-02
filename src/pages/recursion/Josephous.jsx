@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { ShadCNHeader as Header } from "../../components/Header/ShadCNNav";
 import Description from "../../components/utils/Description";
+import SpeedControls from "../../components/utils/SpeedControl";
+import SEOData from "../../components/SEO";
 
 const JosephusProblem = () => {
   const [n, setN] = useState(7); // number of people
@@ -14,32 +16,36 @@ const JosephusProblem = () => {
   const [survivor, setSurvivor] = useState(null);
 
   const descriptionData = {
-    heading: "The Josephus Problem",
-    subheading: "A classic problem in mathematics and computer science",
-    summary: `The Josephus problem is a theoretical problem related to a certain
+    heading: `The Josephus Problem`,
+    subheading: `A classic problem in mathematics and computer science`,
+    summary: `<p className="text-neutral-300 leading-relaxed">
+    The Josephus problem is a theoretical problem related to a certain
     counting-out game. People are standing in a circle waiting to be
     executed. Counting begins at a specified point in the circle and
     proceeds around the circle in a specified direction. After a specified
     number of people are skipped, the next person is executed. The
     procedure is repeated with the remaining people, starting after the
     person who was just executed, until only one person remains, and is
-    freed.`,
+    freed.</p>`,
     history: `Named after Flavius Josephus, a Jewish historian who lived in the 1st century.`,
     lang: "python",
     code: `
     # recursive
     def josephus(n, k):
-    if n == 1:
-    return 0
-    return (josephus(n - 1, k) + k) % n
+      if n == 1:
+        return 0
+      return (josephus(n - 1, k) + k) % n
 
     # iterative
     def josephus(n, k):
-    res = 0
-    for i in range(2, n + 1):
-    res = (res + k) % i
-    return res  # 0-based
+      res = 0
+      for i in range(2, n + 1):
+        res = (res + k) % i
+      return res  # 0-based
     `,
+  };
+  const seoData = {
+    title: descriptionData.heading,
   };
 
   // Initialize people
@@ -180,187 +186,184 @@ const JosephusProblem = () => {
   };
 
   return (
-    <div className="min-h-screen max-w-7xl mx-auto w-full flex flex-col items-center justify-start gap-20 py-32 px-4 bg-neutral-900">
-      <Header />
+    <>
+      <SEOData data={seoData} />
 
-      {/* Animation */}
-      <div className="bg-neutral-800 rounded-3xl p-8 border border-neutral-800 flex-1 w-full">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">
-            Josephus Problem
-          </h1>
-          <p className="text-neutral-300 text-lg">
-            n = {n}, k = {k} | Step: {currentStep} / {n - 1}
-          </p>
-          {survivor && (
-            <p className="text-green-400 text-lg font-semibold mt-2">
-              Survivor: Person {survivor}
+      <div className="min-h-screen max-w-7xl mx-auto w-full flex flex-col items-center justify-start gap-20 py-32 px-4 bg-neutral-900">
+        <Header />
+
+        {/* Animation */}
+        <div className="bg-neutral-800 rounded-3xl p-8 border border-neutral-800 flex-1 w-full">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">
+              Josephus Problem
+            </h1>
+            <p className="text-neutral-300 text-lg">
+              n = {n}, k = {k} | Step: {currentStep} / {n - 1}
             </p>
-          )}
-        </div>
+            {survivor && (
+              <p className="text-green-400 text-lg font-semibold mt-2">
+                Survivor: Person {survivor}
+              </p>
+            )}
+          </div>
 
-        {/* Controls */}
-        <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
-          <div className="flex items-center gap-2">
-            <label className="text-white font-medium">People (n):</label>
-            <select
-              value={n}
-              onChange={(e) => setN(parseInt(e.target.value))}
+          {/* Controls */}
+          <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
+            <div className="flex items-center gap-2">
+              <label className="text-white font-medium">People (n):</label>
+              <select
+                value={n}
+                onChange={(e) => setN(parseInt(e.target.value))}
+                disabled={isAnimating}
+                className="bg-neutral-800 text-white px-3 py-1 rounded-lg border border-neutral-600 focus:border-white focus:outline-none"
+              >
+                {[5, 6, 7, 8, 9, 10, 12, 15, 20, 51, 100].map((num) => (
+                  <option key={num} value={num}>
+                    {num}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <label className="text-white font-medium">Step (k):</label>
+              <select
+                value={k}
+                onChange={(e) => setK(parseInt(e.target.value))}
+                disabled={isAnimating}
+                className="bg-neutral-800 text-white px-3 py-1 rounded-lg border border-neutral-600 focus:border-white focus:outline-none"
+              >
+                {[2, 3, 4, 5, 6, 7, 8, 12, 13, 15].map((num) => (
+                  <option key={num} value={num}>
+                    {num}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <SpeedControls
+              animationSpeed={animationSpeed}
+              setAnimationSpeed={setAnimationSpeed}
+              isAnimating={isAnimating}
+            />
+
+            <button
+              onClick={startAnimation}
               disabled={isAnimating}
-              className="bg-neutral-800 text-white px-3 py-1 rounded-lg border border-neutral-600 focus:border-white focus:outline-none"
+              className="bg-white text-black px-6 py-2 rounded-lg font-semibold hover:bg-neutral-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
             >
-              {[5, 6, 7, 8, 9, 10, 12, 15, 20, 51, 100].map((num) => (
-                <option key={num} value={num}>
-                  {num}
-                </option>
-              ))}
-            </select>
-          </div>
+              {isAnimating ? "Running..." : "Start"}
+            </button>
 
-          <div className="flex items-center gap-2">
-            <label className="text-white font-medium">Step (k):</label>
-            <select
-              value={k}
-              onChange={(e) => setK(parseInt(e.target.value))}
+            <button
+              onClick={reset}
               disabled={isAnimating}
-              className="bg-neutral-800 text-white px-3 py-1 rounded-lg border border-neutral-600 focus:border-white focus:outline-none"
+              className="bg-neutral-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-neutral-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
             >
-              {[2, 3, 4, 5, 6, 7, 8, 12, 13, 15].map((num) => (
-                <option key={num} value={num}>
-                  {num}
-                </option>
-              ))}
-            </select>
+              Reset
+            </button>
           </div>
 
-          <div className="flex items-center gap-2">
-            <label className="text-white font-medium">Speed:</label>
-            <select
-              value={animationSpeed}
-              onChange={(e) => setAnimationSpeed(parseInt(e.target.value))}
-              disabled={isAnimating}
-              className="bg-neutral-800 text-white px-3 py-1 rounded-lg border border-neutral-600 focus:border-white focus:outline-none"
+          {/* Game Board */}
+          <div className="flex justify-center items-center mb-8 bg-black p-10 rounded-2xl min-h-[400px]">
+            <div
+              className="relative"
+              style={{ width: "400px", height: "400px" }}
             >
-              <option value={1200}>Slow</option>
-              <option value={800}>Medium</option>
-              <option value={400}>Fast</option>
-              <option value={200}>Very Fast</option>
-              <option value={50}>Lightning</option>
-            </select>
-          </div>
-
-          <button
-            onClick={startAnimation}
-            disabled={isAnimating}
-            className="bg-white text-black px-6 py-2 rounded-lg font-semibold hover:bg-neutral-200 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
-          >
-            {isAnimating ? "Running..." : "Start"}
-          </button>
-
-          <button
-            onClick={reset}
-            disabled={isAnimating}
-            className="bg-neutral-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-neutral-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 shadow-lg"
-          >
-            Reset
-          </button>
-        </div>
-
-        {/* Game Board */}
-        <div className="flex justify-center items-center mb-8 bg-black p-10 rounded-2xl min-h-[400px]">
-          <div className="relative" style={{ width: "400px", height: "400px" }}>
-            <svg width="400" height="400" className="absolute inset-0">
-              {people.map((person, index) => {
-                const pos = getPersonPosition(index, people.length);
-                return (
-                  <g key={person.id}>
-                    <circle
-                      cx={200 + pos.x}
-                      cy={200 + pos.y}
-                      r="20"
-                      fill={getPersonColor(person)}
-                      stroke="white"
-                      strokeWidth="2"
-                      className="transition-all duration-300"
-                      opacity={person.eliminated ? 0.3 : 1}
-                    />
-                    <text
-                      x={200 + pos.x}
-                      y={200 + pos.y + 5}
-                      textAnchor="middle"
-                      className={`text-sm font-bold ${person.eliminated ? "text-neutral-300 fill-neutral-300" : "text-white fill-white"}`}
-                    >
-                      {person.id}
-                    </text>
-                  </g>
-                );
-              })}
-            </svg>
-          </div>
-        </div>
-
-        {/* Elimination Order */}
-        {eliminationOrder.length > 0 && (
-          <div className="text-center mb-6">
-            <h3 className="text-white text-lg font-semibold mb-2">
-              Elimination Order:
-            </h3>
-            <div className="flex flex-wrap justify-center gap-2">
-              {eliminationOrder.map((personId, index) => (
-                <span
-                  key={index}
-                  className="bg-neutral-700 text-white px-3 py-1 rounded-lg text-sm"
-                >
-                  {personId}
-                </span>
-              ))}
+              <svg width="400" height="400" className="absolute inset-0">
+                {people.map((person, index) => {
+                  const pos = getPersonPosition(index, people.length);
+                  return (
+                    <g key={person.id}>
+                      <circle
+                        cx={200 + pos.x}
+                        cy={200 + pos.y}
+                        r="20"
+                        fill={getPersonColor(person)}
+                        stroke="white"
+                        strokeWidth="2"
+                        className="transition-all duration-300"
+                        opacity={person.eliminated ? 0.3 : 1}
+                      />
+                      <text
+                        x={200 + pos.x}
+                        y={200 + pos.y + 5}
+                        textAnchor="middle"
+                        className={`text-sm font-bold ${person.eliminated ? "text-neutral-300 fill-neutral-300" : "text-white fill-white"}`}
+                      >
+                        {person.id}
+                      </text>
+                    </g>
+                  );
+                })}
+              </svg>
             </div>
           </div>
-        )}
 
-        {/* Progress Bar */}
-        <div className="w-full bg-neutral-700 rounded-full h-2 mb-4">
-          <div
-            className="bg-gradient-to-r from-white to-neutral-300 h-2 rounded-full transition-all duration-300"
-            style={{ width: `${(currentStep / (n - 1)) * 100}%` }}
-          />
+          {/* Elimination Order */}
+          {eliminationOrder.length > 0 && (
+            <div className="text-center mb-6">
+              <h3 className="text-white text-lg font-semibold mb-2">
+                Elimination Order:
+              </h3>
+              <div className="flex flex-wrap justify-center gap-2">
+                {eliminationOrder.map((personId, index) => (
+                  <span
+                    key={index}
+                    className="bg-neutral-700 text-white px-3 py-1 rounded-lg text-sm"
+                  >
+                    {personId}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Progress Bar */}
+          <div className="w-full bg-neutral-700 rounded-full h-2 mb-4">
+            <div
+              className="bg-gradient-to-r from-white to-neutral-300 h-2 rounded-full transition-all duration-300"
+              style={{ width: `${(currentStep / (n - 1)) * 100}%` }}
+            />
+          </div>
+
+          {/* Legend */}
+          <div className="flex justify-center gap-6 text-sm text-neutral-300 mb-4">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-neutral-600"></div>
+              <span>Alive</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-green-500"></div>
+              <span>Current</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-orange-700"></div>
+              <span>Target</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-red-900"></div>
+              <span>Eliminated</span>
+            </div>
+          </div>
+
+          {/* Formula */}
+          <div className="text-center text-neutral-300 text-sm">
+            <p>
+              The Josephus problem: n people in a circle, eliminate every k-th
+              person
+            </p>
+            <p className="mt-1 opacity-70">
+              Mathematical solution: J(n,k) = (J(n-1,k) + k) % n
+            </p>
+          </div>
         </div>
 
-        {/* Legend */}
-        <div className="flex justify-center gap-6 text-sm text-neutral-300 mb-4">
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full bg-neutral-600"></div>
-            <span>Alive</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full bg-green-500"></div>
-            <span>Current</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full bg-orange-700"></div>
-            <span>Target</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded-full bg-red-900"></div>
-            <span>Eliminated</span>
-          </div>
-        </div>
-
-        {/* Formula */}
-        <div className="text-center text-neutral-300 text-sm">
-          <p>
-            The Josephus problem: n people in a circle, eliminate every k-th
-            person
-          </p>
-          <p className="mt-1 opacity-70">
-            Mathematical solution: J(n,k) = (J(n-1,k) + k) % n
-          </p>
-        </div>
+        <Description dataObj={descriptionData} />
       </div>
-
-      <Description dataObj={descriptionData} />
-    </div>
+    </>
   );
 };
 
