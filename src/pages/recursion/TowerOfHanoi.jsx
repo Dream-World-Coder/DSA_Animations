@@ -108,7 +108,7 @@ const TowerOfHanoi = () => {
   };
 
   const getDiskWidth = (size, maxSize) => {
-    console.log(maxSize);
+    // console.log(maxSize);
     return 30 + size * 25;
   };
 
