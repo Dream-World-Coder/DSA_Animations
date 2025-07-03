@@ -1,9 +1,9 @@
 const AppLogo = ({
   width = 40,
   height = 54,
-  backgroundColor = "#000000",
+  backgroundColor = "#00f900",
   letterColor = "#ffffff",
-  className = "",
+  className = "rounded-sm",
   ...props
 }) => {
   return (
@@ -16,7 +16,17 @@ const AppLogo = ({
       className={className}
       {...props}
     >
-      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0">
+        <rect
+          x="-40"
+          y="-40"
+          width="480.00"
+          height="480.00"
+          rx="0"
+          fill={backgroundColor}
+          strokeWidth="0"
+        />
+      </g>
       <g
         id="SVGRepo_tracerCarrier"
         strokeLinecap="round"

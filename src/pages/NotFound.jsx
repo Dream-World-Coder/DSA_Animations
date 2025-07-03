@@ -14,7 +14,7 @@ export default function NotFoundPage() {
         <Header />
 
         <div className="flex justify-center items-center p-8">
-          <AppLogo width={200} height={240} />
+          <AppLogo width={200} height={240} backgroundColor="transparent" />
           <div className="text-amber-50 text-2xl">
             Page Not found{" "}
             <div className="text-green-500">

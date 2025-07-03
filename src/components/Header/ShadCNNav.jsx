@@ -55,8 +55,8 @@ export const ShadCNHeader = memo(function ShadCNHeader({ abs = true }) {
             <AppLogo
               width={32}
               height={32}
-              backgroundColor="#8B4513"
-              letterColor="#fff"
+              letterColor="#000000"
+              backgroundColor="#00f900"
             />
             <span className="font-bold text-lg">DSA Animations</span>
           </NavLink>
