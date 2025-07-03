@@ -561,17 +561,17 @@ def level_order_by_levels(root):
           </div>
 
           <div className="text-center text-neutral-300 text-sm">
-            <p>
-              <strong>Time Complexity:</strong> O(n) where n is the number of
-              nodes | <strong>Space Complexity:</strong> O(w) where w is maximum
-              width
-            </p>
             <p className="mt-1 opacity-70 flex items-center justify-center gap-2">
               <p className="size-3 rounded-full bg-[#FDE047]" /> Currently
               visiting,
               <p className="size-3 rounded-full bg-[#3B82F6]" /> In queue,
               <p className="size-3 rounded-full bg-[#10B981]" /> Visited,
               <p className="size-3 rounded-full bg-[#374151]" /> Unvisited,
+            </p>
+            <p>
+              <strong>Time Complexity:</strong> O(n) where n is the number of
+              nodes | <strong>Space Complexity:</strong> O(w) where w is maximum
+              width
             </p>
           </div>
         </div>
