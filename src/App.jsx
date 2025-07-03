@@ -19,6 +19,9 @@ import TowerOfHanoi from "./pages/recursion/TowerOfHanoi";
 import JosephusProblem from "./pages/recursion/Josephous";
 import QuickSort from "./pages/recursion/QuickSort";
 
+// tree
+import LevelOrderTraversal from "./pages/trees/LevelOrderTraversal";
+
 import "./App.css";
 
 function App() {
@@ -66,7 +69,10 @@ function App() {
           <Route path="/recursion/quick-sort" element={<QuickSort />} />
 
           {/* trees */}
-          <Route path="" element={ } />
+          <Route
+            path="/tree/level-order-traversal"
+            element={<LevelOrderTraversal />}
+          />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
