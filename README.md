@@ -2,7 +2,7 @@
 
 An interactive web platform for visualizing Data Structures and Algorithms through animations. Built with React and other web technologies to make learning DSA concepts intuitive and engaging.
 
-<div style="background-color: white;">
+<div style="background-color: #00ee00; width: fit-content; overflow: hidden;  border-radius: 15px;">
 <img src="https://dsa-experiments.vercel.app/favicon.svg" width="150px" height="150px" />
 </div>
 
@@ -50,15 +50,15 @@ Refer to <u>CONTRIBUTING.md</u> for knowing the page structure
 1. **Fork the repository**
 2. **Create your feature branch**
    ```bash
-   git checkout -b feature/AmazingFeature
+   git checkout -b feature/feature-name
    ```
 3. **Commit your changes**
    ```bash
-   git commit -m 'Add some AmazingFeature'
+   git commit -m 'Add some feature-name'
    ```
 4. **Push to the branch**
    ```bash
-   git push origin feature/AmazingFeature
+   git push origin feature/feature-name
    ```
 5. **Open a Pull Request**
 
@@ -92,6 +92,7 @@ Have an idea for a new algorithm or feature? Open an issue with the `enhancement
 
 ### Array & LinkedList
 
+- Floyd's cycle detection Algorithm
 - Kadane's Algorithm
 
 ### Recursion
@@ -108,6 +109,7 @@ Have an idea for a new algorithm or feature? Open an issue with the `enhancement
 
 ### Tree
 
+- Level order traversal
 - Red-Black Tree
 
 ### Graph
