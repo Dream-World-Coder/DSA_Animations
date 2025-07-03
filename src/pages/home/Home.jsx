@@ -116,7 +116,7 @@ const HomePage = memo(function HomePage() {
                   className="border border-neutral-700 hover:border-neutral-600 text-white font-semibold
                 px-8 py-4 rounded-lg transition-all duration-300 hover:bg-neutral-800"
                 >
-                  View Documentation
+                  Contribute
                 </a>
               </div>
             </div>
