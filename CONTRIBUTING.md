@@ -106,3 +106,6 @@ const Component = memo(function Component() {
 
 export default Component;
 ```
+
+After making the component you have to update the `App.jsx` and give it a route.
+Also add the route in `assets/data/navLinks.js`

@@ -11,6 +11,9 @@ import NotFoundPage from "./pages/NotFound";
 // array
 import KadanesAlgorithm from "./pages/array/Kadane";
 
+// stackQueue
+import ExpEval from "./pages/stackQueue/ExpressionEval";
+
 // recursion
 import TowerOfHanoi from "./pages/recursion/TowerOfHanoi";
 import JosephusProblem from "./pages/recursion/Josephous";
@@ -48,6 +51,12 @@ function App() {
             element={<KadanesAlgorithm />}
           />
 
+          {/* stack queue */}
+          <Route
+            path="/stack-queue/expression-evaluation"
+            element={<ExpEval />}
+          />
+
           {/* recursion */}
           <Route path="/recursion/tower-of-hanoi" element={<TowerOfHanoi />} />
           <Route
@@ -55,6 +64,9 @@ function App() {
             element={<JosephusProblem />}
           />
           <Route path="/recursion/quick-sort" element={<QuickSort />} />
+
+          {/* trees */}
+          <Route path="" element={ } />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
