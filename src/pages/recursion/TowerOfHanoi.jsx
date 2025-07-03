@@ -55,8 +55,50 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
       tower_of_hanoi(n-1, src=aux, dest=dest, aux=src)
     `,
   };
+
   const seoData = {
-    title: descriptionData.heading,
+    title: "Tower of Hanoi - Recursive Disk Movement Visualization",
+    description:
+      "Visualize the classic Tower of Hanoi recursive problem with interactive animations. Understand the base case, recursive steps, and optimal solution.",
+    canonical: "https://dsa-experiments.vercel.app/recursion/tower-of-hanoi",
+    openGraph: {
+      title: "Tower of Hanoi - Recursive Disk Movement Visualization",
+      description:
+        "Visualize the classic Tower of Hanoi recursive problem with interactive animations. Understand the base case, recursive steps, and optimal solution.",
+      url: "https://dsa-experiments.vercel.app/recursion/tower-of-hanoi",
+      image: "/images/tower-of-hanoi/prev.png",
+    },
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Tower of Hanoi - Recursive Disk Movement Visualization",
+      url: "https://dsa-experiments.vercel.app/recursion/tower-of-hanoi",
+      description:
+        "Interactive visualization of the Tower of Hanoi problem using recursion.",
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://dsa-experiments.vercel.app",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Recursion",
+            item: "https://dsa-experiments.vercel.app/recursion",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Tower of Hanoi",
+            item: "https://dsa-experiments.vercel.app/recursion/tower-of-hanoi",
+          },
+        ],
+      },
+    },
   };
 
   // Initialize towers

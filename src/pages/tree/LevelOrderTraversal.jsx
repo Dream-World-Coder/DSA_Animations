@@ -429,7 +429,48 @@ def level_order_by_levels(root):
   };
 
   const seoData = {
-    title: "Level Order Traversal (BFS) - Binary Tree Visualization",
+    title: "Level Order Traversal - Breadth First Search Visualization",
+    description:
+      "Visualize Level Order Traversal (Breadth First Search) on binary trees. See each level processed in real-time and understand queue-based logic.",
+    canonical: "https://dsa-experiments.vercel.app/tree/level-order-traversal",
+    openGraph: {
+      title: "Level Order Traversal - Breadth First Search Visualization",
+      description:
+        "Visualize Level Order Traversal (Breadth First Search) on binary trees. See each level processed in real-time and understand queue-based logic.",
+      url: "https://dsa-experiments.vercel.app/tree/level-order-traversal",
+      image: "/images/level-order-traversal/prev.png",
+    },
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Level Order Traversal - Breadth First Search Visualization",
+      url: "https://dsa-experiments.vercel.app/tree/level-order-traversal",
+      description:
+        "Visual simulation of level order traversal in binary trees using queues (BFS).",
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://dsa-experiments.vercel.app",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Tree",
+            item: "https://dsa-experiments.vercel.app/tree",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Level Order Traversal",
+            item: "https://dsa-experiments.vercel.app/tree/level-order-traversal",
+          },
+        ],
+      },
+    },
   };
 
   return (

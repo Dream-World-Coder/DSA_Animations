@@ -558,31 +558,74 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
 
     return finder                 # Loop start node
 
-# Alternative: Just detect if cycle exists
-def has_cycle(head):
-    slow = fast = head
+    # Alternative: Just detect if cycle exists
+    def has_cycle(head):
+        slow = fast = head
 
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
 
-        if slow == fast:
-            return True
+            if slow == fast:
+                return True
 
-    return False
+        return False
 
-# Mathematical proof:
-# If loop exists with length L and distance to loop start is D:
-# When pointers meet: slow traveled D+K, fast traveled D+K+nL
-# Since fast moves twice as fast: 2(D+K) = D+K+nL
-# Solving: D+K = nL, so D = nL-K
-# Moving from head D steps = moving from meeting point nL-K steps
-# Both reach loop start simultaneously.`,
+    # Mathematical proof:
+    # If loop exists with length L and distance to loop start is D:
+    # When pointers meet: slow traveled D+K, fast traveled D+K+nL
+    # Since fast moves twice as fast: 2(D+K) = D+K+nL
+    # Solving: D+K = nL, so D = nL-K
+    # Moving from head D steps = moving from meeting point nL-K steps
+    # Both reach loop start simultaneously.`,
   };
 
   const seoData = {
     title:
       "Floyd's Cycle Detection Algorithm - Tortoise and Hare Visualization",
+    description:
+      "Visualize Floyd’s Cycle Detection Algorithm (Tortoise and Hare approach) interactively. Understand how fast and slow pointers detect cycles in linked lists with animations.",
+    canonical:
+      "https://dsa-experiments.vercel.app/array-linkedlist/floyds-cycle-detection-algorithm",
+    openGraph: {
+      title:
+        "Floyd's Cycle Detection Algorithm - Tortoise and Hare Visualization",
+      description:
+        "Visualize Floyd’s Cycle Detection Algorithm (Tortoise and Hare approach) interactively. Understand how fast and slow pointers detect cycles in linked lists with animations.",
+      url: "https://dsa-experiments.vercel.app/array-linkedlist/floyds-cycle-detection-algorithm",
+      image: "/images/floyd-cycle/prev.png",
+    },
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Floyd's Cycle Detection Algorithm - Tortoise and Hare Visualization",
+      url: "https://dsa-experiments.vercel.app/array-linkedlist/floyds-cycle-detection-algorithm",
+      description:
+        "Visualize Floyd’s Cycle Detection Algorithm (Tortoise and Hare approach) interactively using animations. Perfect for understanding how cycle detection works in linked lists.",
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://dsa-experiments.vercel.app",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Array & LinkedList",
+            item: "https://dsa-experiments.vercel.app/array-linkedlist",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Floyd's Cycle Detection",
+            item: "https://dsa-experiments.vercel.app/array-linkedlist/floyds-cycle-detection-algorithm",
+          },
+        ],
+      },
+    },
   };
 
   return (

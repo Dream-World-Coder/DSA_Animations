@@ -25,7 +25,7 @@ const QuickSort = lazy(() => import("./pages/recursion/QuickSort"));
 
 // tree
 const LevelOrderTraversal = lazy(
-  () => import("./pages/trees/LevelOrderTraversal"),
+  () => import("./pages/tree/LevelOrderTraversal"),
 );
 
 function App() {

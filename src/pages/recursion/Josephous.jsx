@@ -53,7 +53,48 @@ const JosephusProblem = memo(function JosephusProblem() {
     `,
   };
   const seoData = {
-    title: descriptionData.heading,
+    title: "Josephus Problem - Recursive & Mathematical Visualization",
+    description:
+      "Visual walkthrough of the Josephus Problem using recursion and patterns. Understand how the last survivor is determined step by step.",
+    canonical: "https://dsa-experiments.vercel.app/recursion/josephus-problem",
+    openGraph: {
+      title: "Josephus Problem - Recursive & Mathematical Visualization",
+      description:
+        "Visual walkthrough of the Josephus Problem using recursion and patterns. Understand how the last survivor is determined step by step.",
+      url: "https://dsa-experiments.vercel.app/recursion/josephus-problem",
+      image: "/images/josephus-problem/prev.png",
+    },
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Josephus Problem - Recursive & Mathematical Visualization",
+      url: "https://dsa-experiments.vercel.app/recursion/josephus-problem",
+      description:
+        "Interactive recursive simulation of the Josephus Problem with animations.",
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://dsa-experiments.vercel.app",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Recursion",
+            item: "https://dsa-experiments.vercel.app/recursion",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Josephus Problem",
+            item: "https://dsa-experiments.vercel.app/recursion/josephus-problem",
+          },
+        ],
+      },
+    },
   };
 
   // Initialize people

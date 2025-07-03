@@ -406,7 +406,49 @@ def evaluate_postfix(expression):
   };
 
   const seoData = {
-    title: "Expression Evaluation Using Stack - DSA Visualization",
+    title: "Expression Evaluation - Infix to Postfix & Evaluation Visualizer",
+    description:
+      "Step-by-step visualizer for converting infix expressions to postfix and evaluating them using stacks. Learn expression parsing interactively.",
+    canonical:
+      "https://dsa-experiments.vercel.app/stack-queue/expression-evaluation",
+    openGraph: {
+      title: "Expression Evaluation - Infix to Postfix & Evaluation Visualizer",
+      description:
+        "Step-by-step visualizer for converting infix expressions to postfix and evaluating them using stacks. Learn expression parsing interactively.",
+      url: "https://dsa-experiments.vercel.app/stack-queue/expression-evaluation",
+      image: "/images/expression-evaluation/prev.png",
+    },
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "Expression Evaluation - Infix to Postfix & Evaluation Visualizer",
+      url: "https://dsa-experiments.vercel.app/stack-queue/expression-evaluation",
+      description:
+        "Interactive tool to understand infix to postfix conversion and evaluation using stacks.",
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://dsa-experiments.vercel.app",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Stack & Queue",
+            item: "https://dsa-experiments.vercel.app/stack-queue",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Expression Evaluation",
+            item: "https://dsa-experiments.vercel.app/stack-queue/expression-evaluation",
+          },
+        ],
+      },
+    },
   };
 
   return (
