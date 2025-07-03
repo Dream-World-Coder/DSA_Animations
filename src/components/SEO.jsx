@@ -26,7 +26,10 @@ const SEOData = memo(function SEOData({ data = {} }) {
       {openGraph.description && (
         <meta property="og:description" content={openGraph.description} />
       )}
-      {openGraph.url && <meta property="og:url" content={openGraph.url} />}
+      <meta
+        property="og:url"
+        content={openGraph.url ? openGraph.url : "/images/defaults/preview.png"}
+      />
       {openGraph.image && (
         <meta property="og:image" content={openGraph.image} />
       )}
