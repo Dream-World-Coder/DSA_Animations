@@ -163,6 +163,7 @@ export default ComponentName;
 
 - After making the component you have to update the `App.jsx` and give it an appropriate route. Lazy load the components.
 - Also add the route in `assets/data/navLinks.js` [*required*] & `public/sitemap.xml`
+- Although its not required, still its recommend to add a doc explaining your code. `docs/{topic}/{subtopic}`
 - If needed to add images then add them in `public/images/{your-added-component-name}/*`
 
 ## SEO Data
