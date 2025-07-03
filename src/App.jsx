@@ -10,6 +10,7 @@ import NotFoundPage from "./pages/NotFound";
 
 // array
 import KadanesAlgorithm from "./pages/array/Kadane";
+import FloydCycleDetection from "./pages/array/FloydsCycleDetection";
 
 // stackQueue
 import ExpEval from "./pages/stackQueue/ExpressionEval";
@@ -52,6 +53,10 @@ function App() {
           <Route
             path="/array-linkedlist/kadane-algo"
             element={<KadanesAlgorithm />}
+          />
+          <Route
+            path="/array-linkedlist/floyds-cycle-detection-algorithm"
+            element={<FloydCycleDetection />}
           />
 
           {/* stack queue */}

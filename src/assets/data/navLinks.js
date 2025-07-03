@@ -5,6 +5,10 @@ export const navLinks = [
     dropdownElements: [
       { title: "Kadane's Algorithm", href: "/kadane-algo" },
       { title: "Dynamic Array", href: "/dynamic-array" },
+      {
+        title: "Floyds Cycle Detection",
+        href: "/floyds-cycle-detection-algorithm",
+      },
     ],
   },
   {
