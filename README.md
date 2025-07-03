@@ -2,7 +2,9 @@
 
 An interactive web platform for visualizing Data Structures and Algorithms through animations. Built with React and other web technologies to make learning DSA concepts intuitive and engaging.
 
-<img src="https://dsa-experiments.vercel.app/favicon.svg" width="150px" height="150px" style="background-color: 'white';" />
+<div style="background-color: 'white';">
+<img src="https://dsa-experiments.vercel.app/favicon.svg" width="150px" height="150px" />
+</div>
 
 ## Features
 
