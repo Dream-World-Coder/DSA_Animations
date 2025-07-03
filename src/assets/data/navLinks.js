@@ -1,5 +1,6 @@
 export const navLinks = [
   {
+    _id: 0,
     title: "Array & LinkedList",
     hrefPrefix: "/array-linkedlist",
     dropdownElements: [
@@ -12,6 +13,7 @@ export const navLinks = [
     ],
   },
   {
+    _id: 1,
     title: "Recursion",
     hrefPrefix: "/recursion",
     dropdownElements: [
@@ -22,6 +24,7 @@ export const navLinks = [
     ],
   },
   {
+    _id: 2,
     title: "Stack & Queue",
     hrefPrefix: "/stack-queue",
     dropdownElements: [
@@ -30,6 +33,7 @@ export const navLinks = [
     ],
   },
   {
+    _id: 3,
     title: "Tree",
     hrefPrefix: "/tree",
     dropdownElements: [
@@ -38,6 +42,7 @@ export const navLinks = [
     ],
   },
   {
+    _id: 4,
     title: "Graph",
     hrefPrefix: "/graph",
     dropdownElements: [
@@ -49,6 +54,7 @@ export const navLinks = [
     ],
   },
   {
+    _id: 5,
     title: "Greedy",
     hrefPrefix: "/greedy",
     dropdownElements: [
@@ -60,6 +66,7 @@ export const navLinks = [
     ],
   },
   {
+    _id: 6,
     title: "Backtracking",
     hrefPrefix: "/backtracking",
     dropdownElements: [

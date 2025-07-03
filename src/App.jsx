@@ -6,8 +6,9 @@ import { Analytics } from "@vercel/analytics/react";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
-const HomePage = lazy(() => import("./pages/home/Home"));
-const NotFoundPage = lazy(() => import("./pages/NotFound"));
+import HomePage from "./pages/home/Home";
+import NotFoundPage from "./pages/NotFound";
+import TopicsPage from "./components/TopicsList";
 
 // array
 const KadanesAlgorithm = lazy(() => import("./pages/array/Kadane"));
@@ -61,6 +62,10 @@ function App() {
 
             {/* array */}
             <Route
+              path="/array-linkedlist"
+              element={<TopicsPage topicID={0} />}
+            />
+            <Route
               path="/array-linkedlist/kadane-algo"
               element={<KadanesAlgorithm />}
             />
@@ -70,12 +75,14 @@ function App() {
             />
 
             {/* stack queue */}
+            <Route path="/stack-queue" element={<TopicsPage topicID={2} />} />
             <Route
               path="/stack-queue/expression-evaluation"
               element={<ExpEval />}
             />
 
             {/* recursion */}
+            <Route path="/recursion" element={<TopicsPage topicID={1} />} />
             <Route
               path="/recursion/tower-of-hanoi"
               element={<TowerOfHanoi />}
@@ -87,10 +94,20 @@ function App() {
             <Route path="/recursion/quick-sort" element={<QuickSort />} />
 
             {/* trees */}
+            <Route path="/tree" element={<TopicsPage topicID={3} />} />
             <Route
               path="/tree/level-order-traversal"
               element={<LevelOrderTraversal />}
             />
+
+            {/* graph */}
+            <Route path="/graph" element={<TopicsPage topicID={4} />} />
+
+            {/* greedy */}
+            <Route path="/greedy" element={<TopicsPage topicID={5} />} />
+
+            {/* backtracking */}
+            <Route path="/backtracking" element={<TopicsPage topicID={6} />} />
 
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
