@@ -11,9 +11,9 @@ import NotFoundPage from "./pages/NotFound";
 import TopicsPage from "./components/TopicsList";
 
 // array
-const KadanesAlgorithm = lazy(() => import("./pages/array/Kadane"));
+const KadanesAlgorithm = lazy(() => import("./pages/arrayLinkedList/Kadane"));
 const FloydCycleDetection = lazy(
-  () => import("./pages/array/FloydsCycleDetection"),
+  () => import("./pages/arrayLinkedList/FloydsCycleDetection"),
 );
 
 // stackQueue
@@ -52,7 +52,7 @@ function App() {
         <Analytics />
         <Suspense
           fallback={
-            <div className="flex justify-center items-center mt-10 bg-neutral-900 text-white text-xl">
+            <div className="min-h-screen w-full flex justify-center items-center mt-10 bg-neutral-900 text-white text-xl">
               Loading...
             </div>
           }

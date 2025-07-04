@@ -167,14 +167,14 @@ const PointerStatus = ({
     <div className="flex gap-8">
       <div className="text-center">
         <div className="text-green-400 font-semibold mb-1">Slow Pointer</div>
-        <div className="bg-green-600 text-white px-4 py-2 rounded-lg font-mono">
+        <div className="bg-green-600 text-white px-4 py-2 rounded-sm font-mono">
           {slowPointer ? slowPointer.value : "NULL"}
         </div>
       </div>
 
       <div className="text-center">
         <div className="text-blue-400 font-semibold mb-1">Fast Pointer</div>
-        <div className="bg-blue-600 text-white px-4 py-2 rounded-lg font-mono">
+        <div className="bg-blue-600 text-white px-4 py-2 rounded-sm font-mono">
           {fastPointer ? fastPointer.value : "NULL"}
         </div>
       </div>
@@ -183,12 +183,12 @@ const PointerStatus = ({
     <div className="text-center">
       <div className="text-white font-semibold mb-1">Phase</div>
       <div
-        className={`px-4 py-2 rounded-lg font-semibold ${
+        className={`px-4 py-2 rounded-sm font-semibold ${
           phase === "detection"
-            ? "bg-yellow-600"
+            ? "bg-yellow-500"
             : phase === "finding-start"
               ? "bg-purple-600"
-              : "bg-neutral-600"
+              : "bg-neutral-600 text-neutral-100"
         }`}
       >
         {phase === "detection"
@@ -201,7 +201,7 @@ const PointerStatus = ({
 
     <div className="flex gap-4">
       <div
-        className={`px-3 py-1 rounded-lg text-sm font-semibold ${
+        className={`px-3 py-1 rounded-sm text-sm font-semibold ${
           loopDetected
             ? "bg-red-600 text-white"
             : "bg-neutral-600 text-neutral-300"
@@ -212,7 +212,7 @@ const PointerStatus = ({
 
       {loopDetected && (
         <div
-          className={`px-3 py-1 rounded-lg text-sm font-semibold ${
+          className={`px-3 py-1 rounded-md text-sm font-semibold ${
             loopStartFound
               ? "bg-green-600 text-white"
               : "bg-neutral-600 text-neutral-300"
