@@ -12,6 +12,8 @@ const SEOData = memo(function SEOData({ data = {} }) {
     schema = null,
   } = data;
 
+  const domain = "https://dsa-experiments.vercel.app";
+
   return (
     <Helmet>
       {title && <title>{title}</title>}
@@ -26,13 +28,11 @@ const SEOData = memo(function SEOData({ data = {} }) {
       {openGraph.description && (
         <meta property="og:description" content={openGraph.description} />
       )}
+      {openGraph.url && <meta property="og:url" content={openGraph.url} />}
       <meta
-        property="og:url"
-        content={openGraph.url ? openGraph.url : "/images/defaults/preview.png"}
+        property="og:image"
+        content={`${domain}${openGraph.image ? openGraph.image : "/images/defaults/preview.png"}`}
       />
-      {openGraph.image && (
-        <meta property="og:image" content={openGraph.image} />
-      )}
       {openGraph.type && <meta property="og:type" content={openGraph.type} />}
 
       {/* Twitter Tags */}
@@ -42,7 +42,9 @@ const SEOData = memo(function SEOData({ data = {} }) {
       {twitter.description && (
         <meta name="twitter:description" content={twitter.description} />
       )}
-      {twitter.image && <meta name="twitter:image" content={twitter.image} />}
+      {twitter.image && (
+        <meta name="twitter:image" content={domain + twitter.image} />
+      )}
 
       {/* Schema.org JSON-LD */}
       {schema && (
