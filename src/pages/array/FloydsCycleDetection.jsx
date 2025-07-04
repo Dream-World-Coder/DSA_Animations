@@ -38,18 +38,18 @@ const ListNode = ({
         r={radius}
         fill={
           isHighlighted
-            ? "#FDE047" // Yellow for highlighted
+            ? "#FDE047" // Yellow -> highlighted
             : isInLoop
-              ? "#EF4444" // Red for loop nodes
-              : "#374151" // Gray for normal nodes
+              ? "#EF4444" // Red -> loop nodes
+              : "#374151" // Gray -> normal nodes
         }
         stroke={
           isSlowPointer && isFastPointer
-            ? "#8B5CF6" // Purple when both pointers are on same node
+            ? "#8B5CF6" // Purple -> when both pointers are on same node
             : isSlowPointer
-              ? "#10B981" // Green for slow pointer
+              ? "#10B981" // Green -> slow pointer
               : isFastPointer
-                ? "#3B82F6" // Blue for fast pointer
+                ? "#3B82F6" // Blue -> fast pointer
                 : isInLoop
                   ? "#DC2626"
                   : "#6B7280"
@@ -232,7 +232,7 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [listType, setListType] = useState("with-loop");
 
-  // Animation state
+  // Animation states //
   const [nodes, setNodes] = useState([]);
   const [slowPointer, setSlowPointer] = useState(null);
   const [fastPointer, setFastPointer] = useState(null);
@@ -246,7 +246,7 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
 
   const timeoutRef = useRef(null);
 
-  // List structures
+  // List str //
   const listStructures = {
     "with-loop": {
       nodes: [
@@ -261,7 +261,7 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
         { id: 9, value: "9", x: 600, y: 300, next: 10 },
         { id: 10, value: "10", x: 500, y: 300, next: 11 },
         { id: 11, value: "11", x: 400, y: 300, next: 12 },
-        { id: 12, value: "12", x: 300, y: 300, next: 5 }, // Loop back to node 5
+        { id: 12, value: "12", x: 300, y: 300, next: 5 }, // loop back to 5
       ],
       loopStart: 5,
       loopNodes: new Set([5, 6, 7, 8, 9, 10, 11, 12]),
@@ -296,7 +296,7 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
 
     if (listNodes.length === 0) return steps;
 
-    // Phase 1: Detection
+    // S-I: detection
     let slow = listNodes[0];
     let fast = listNodes[0];
 
@@ -311,16 +311,16 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
       highlightedNode: null,
     });
 
-    // Move pointers for detection
+    // move pointers for detection
     while (true) {
-      // Move slow pointer one step
+      // move slow pointer one step
       if (slow.next) {
         slow = nodeMap.get(slow.next);
       } else {
         slow = null;
       }
 
-      // Move fast pointer two steps
+      // move fast pointer two steps
       if (fast.next) {
         fast = nodeMap.get(fast.next);
         if (fast && fast.next) {
@@ -343,7 +343,7 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
         highlightedNode: null,
       });
 
-      // Check if fast pointer reached end (no loop)
+      // Check for fast pointer reached end -> no loop
       if (!fast || !slow) {
         steps.push({
           action: "Fast pointer reached end - No loop detected",
@@ -358,7 +358,7 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
         break;
       }
 
-      // Check if pointers meet (loop detected)
+      // Check for pointers meeting -> loop +nt
       if (slow.id === fast.id) {
         steps.push({
           action: "Pointers meet - Loop detected!",
@@ -371,8 +371,8 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
           highlightedNode: slow.id,
         });
 
-        // Phase 2: Find loop start
-        let finder = listNodes[0]; // Reset to head
+        // S-II: finding loop start
+        let finder = listNodes[0]; // reset to head
 
         steps.push({
           action:
@@ -386,7 +386,7 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
           highlightedNode: null,
         });
 
-        // Move both pointers one step at a time until they meet
+        // move both pointers one step at a time until they meet
         while (finder.id !== slow.id) {
           finder = nodeMap.get(finder.next);
           slow = nodeMap.get(slow.next);
@@ -709,7 +709,7 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
           </div>
 
           <div className="bg-black p-8 rounded-lg min-h-[600px]">
-            {/* Pointer Status */}
+            {/* pointer status */}
             <PointerStatus
               slowPointer={slowPointer}
               fastPointer={fastPointer}
@@ -718,10 +718,10 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
               loopStartFound={loopStartFound}
             />
 
-            {/* Linked List visualization */}
+            {/* linked list visualization */}
             <div className="flex justify-center mb-6">
               <svg width="800" height="400" viewBox="0 0 800 400">
-                {/* Draw arrows first (background) */}
+                {/* draw arrows first [background] */}
                 {nodes.map((node) => {
                   const nextNode = getNextNode(node);
                   if (nextNode) {
@@ -742,7 +742,7 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
                   return null;
                 })}
 
-                {/* Draw nodes on top */}
+                {/* draw nodes on top */}
                 {nodes.map((node) => (
                   <ListNode
                     key={node.id}
@@ -758,7 +758,7 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
               </svg>
             </div>
 
-            {/* Current action */}
+            {/* current action */}
             {currentAction && (
               <div className="text-center">
                 <div className="bg-neutral-700 text-white px-6 py-3 rounded-lg inline-block font-semibold max-w-2xl">

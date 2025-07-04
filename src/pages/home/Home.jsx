@@ -15,7 +15,7 @@ import SEOData from "../../components/SEO";
 // import { WireframeLines } from "../../components/Decorum";
 
 const HomePage = memo(function HomePage() {
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const [, setHoveredCard] = useState(null); // hoveredCard
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const HomePage = memo(function HomePage() {
 
         <Header abs={false} />
 
-        {/* Hero Section */}
+        {/* Hero */}
         <section className="pt-24 pb-16 px-6">
           <div className="container mx-auto max-w-4xl">
             <div
@@ -123,7 +123,7 @@ const HomePage = memo(function HomePage() {
           </div>
         </section>
 
-        {/* Navigation Cards */}
+        {/* Nav cards */}
         <section className="py-16 px-6">
           <div className="container mx-auto max-w-7xl">
             <div id="explore" className="text-center mb-12">
@@ -155,7 +155,7 @@ const HomePage = memo(function HomePage() {
                         <NavLink
                           key={algo.title}
                           to={`${category.hrefPrefix}${algo.href}`}
-                          className="group relative flex-shrink-0 w-64 bg-neutral-800 rounded-xl p-5 border border-neutral-700 hover:border-green-500/50 transition-all duration-300 cursor-pointer hover:scale-100"
+                          className="group relative flex-shrink-0 w-64 bg-neutral-800 rounded-xl p-5 border border-neutral-700 hover:border-green-500/50 transition-all duration-300 cursor-pointer"
                           onMouseEnter={() =>
                             setHoveredCard(`${categoryIndex}-${algoIndex}`)
                           }
@@ -186,7 +186,7 @@ const HomePage = memo(function HomePage() {
                       ))}
                     </div>
 
-                    {/* Scroll indicators */}
+                    {/* scroll indicators */}
                     <div className="absolute top-1/2 -translate-y-1/2 left-0 w-8 h-full bg-gradient-to-r from-neutral-900 to-transparent pointer-events-none opacity-50" />
                     <div className="absolute top-1/2 -translate-y-1/2 right-0 w-8 h-full bg-gradient-to-l from-neutral-900 to-transparent pointer-events-none opacity-50" />
                   </div>
@@ -196,7 +196,7 @@ const HomePage = memo(function HomePage() {
           </div>
         </section>
 
-        {/* About Section */}
+        {/* about */}
         <section className="py-16 px-6 bg-neutral-800/50">
           <div className="container mx-auto max-w-4xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -267,7 +267,7 @@ const HomePage = memo(function HomePage() {
           </div>
         </section>
 
-        {/* Contact Section */}
+        {/* contact */}
         <section className="py-16 px-6">
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
@@ -317,7 +317,6 @@ const HomePage = memo(function HomePage() {
           </div>
         </section>
 
-        {/* Footer */}
         <footer className="border-t border-neutral-800 py-8 px-6">
           <div className="container mx-auto max-w-6xl">
             <div className="flex flex-col md:flex-row justify-between items-center">
@@ -326,27 +325,6 @@ const HomePage = memo(function HomePage() {
                   © 2025 DSA Animations. Made with ❤️ for learners.
                 </p>
               </div>
-
-              {/* <div className="flex gap-6">
-              <a
-                href="#"
-                className="text-neutral-400 hover:text-white transition-colors text-sm"
-              >
-                Privacy
-              </a>
-              <a
-                href="#"
-                className="text-neutral-400 hover:text-white transition-colors text-sm"
-              >
-                Terms
-              </a>
-              <a
-                href="#"
-                className="text-neutral-400 hover:text-white transition-colors text-sm"
-              >
-                Support
-              </a>
-            </div> */}
             </div>
           </div>
         </footer>

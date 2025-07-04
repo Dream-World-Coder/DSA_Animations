@@ -88,9 +88,9 @@ const ExpEval = memo(function ExpEval() {
   const [totalSteps, setTotalSteps] = useState(0);
   const [animationSpeed, setAnimationSpeed] = useState(800);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [mode, setMode] = useState("postfix"); // "postfix" or "evaluate"
+  const [mode, setMode] = useState("postfix"); // postfix or evaluate
 
-  // Animation state
+  // animation states
   const [operatorStack, setOperatorStack] = useState([]);
   const [outputQueue, setOutputQueue] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -149,7 +149,7 @@ const ExpEval = memo(function ExpEval() {
           });
         }
         if (operatorStack.length > 0) {
-          operatorStack.pop(); // Remove '('
+          operatorStack.pop(); // remove '('
         }
         steps.push({
           index: i,
@@ -287,7 +287,7 @@ const ExpEval = memo(function ExpEval() {
     if (mode === "postfix") {
       animationSteps = generateInfixToPostfixSteps(expression);
     } else {
-      // First convert to postfix, then evaluate
+      // first convert to postfix, then evaluate
       const postfixSteps = generateInfixToPostfixSteps(expression);
       const postfixExpr =
         postfixSteps[postfixSteps.length - 1].outputQueue.join("");

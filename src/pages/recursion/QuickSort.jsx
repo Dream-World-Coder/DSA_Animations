@@ -29,7 +29,7 @@ const QuickSort = memo(function QuickSort() {
   const [partitionSteps, setPartitionSteps] = useState([]);
   const [currentPartitionStep, setCurrentPartitionStep] = useState("");
 
-  // Predefined arrays for testing
+  // arrays for testing
   const presetArrays = {
     "Random Small": [64, 34, 25, 12, 22, 11, 90],
     "Reverse Sorted": [90, 80, 70, 60, 50, 40, 30, 20, 10],
@@ -38,10 +38,10 @@ const QuickSort = memo(function QuickSort() {
     "Single Element": [42],
     "Two Elements": [5, 2],
     "Many Duplicates": [3, 7, 3, 1, 7, 3, 9, 1],
-    "Large Random": [43, 12, 87, 23, 91, 45, 67, 34, 78, 56, 89, 21],
+    "Large Random": [43, 12, 87, 23, 91, 45, 67, 34, 78, 56, 89, 21, 1, 7, 79],
   };
 
-  // Initialize sorting state
+  // initializing sorting state
   const initializeSorting = useCallback(() => {
     setPivotIndex(-1);
     setLeftPointer(-1);
@@ -61,7 +61,7 @@ const QuickSort = memo(function QuickSort() {
     initializeSorting();
   }, [originalArray, initializeSorting]);
 
-  // Generate random array
+  // random array generation
   const generateRandomArray = (size = 8) => {
     const newArray = Array.from(
       { length: size },
@@ -70,7 +70,7 @@ const QuickSort = memo(function QuickSort() {
     setOriginalArray(newArray);
   };
 
-  // Handle preset array selection
+  // handling preset array selection
   const handlePresetChange = (preset) => {
     setOriginalArray([...presetArrays[preset]]);
   };
@@ -78,13 +78,13 @@ const QuickSort = memo(function QuickSort() {
   // QuickSort implementation with animation steps
   const quickSortWithSteps = useCallback(async (arr, low, high, steps = []) => {
     if (low < high) {
-      // Add partition step
+      // add partition step
       steps.push({
         type: "partition_start",
         array: [...arr],
         low,
         high,
-        pivot: high, // Using last element as pivot
+        pivot: high, // using last element as pivot
         message: `Partitioning range [${low}, ${high}] with pivot ${arr[high]}`,
       });
 
@@ -97,7 +97,7 @@ const QuickSort = memo(function QuickSort() {
         message: `Pivot ${arr[pi]} is now in correct position at index ${pi}`,
       });
 
-      // Recursively sort left and right subarrays
+      // recursively sort left and right subarrays
       await quickSortWithSteps(arr, low, pi - 1, steps);
       await quickSortWithSteps(arr, pi + 1, high, steps);
     }
@@ -136,7 +136,7 @@ const QuickSort = memo(function QuickSort() {
       if (arr[j] < pivot) {
         i++;
         if (i !== j) {
-          // Swap elements
+          // swap elements
           [arr[i], arr[j]] = [arr[j], arr[i]];
           steps.push({
             type: "swap",
@@ -153,7 +153,7 @@ const QuickSort = memo(function QuickSort() {
       }
     }
 
-    // Place pivot in correct position
+    // place pivot in correct position
     [arr[i + 1], arr[high]] = [arr[high], arr[i + 1]];
     steps.push({
       type: "pivot_placement",
@@ -243,7 +243,7 @@ const QuickSort = memo(function QuickSort() {
       await animateStep(step);
     }
 
-    // Mark all elements as sorted
+    // mark all elements as sorted
     setSortedIndices(
       new Set(Array.from({ length: originalArray.length }, (_, i) => i)),
     );
@@ -283,7 +283,7 @@ const QuickSort = memo(function QuickSort() {
 
   const getBarHeight = (value) => {
     const maxValue = Math.max(...originalArray);
-    return Math.max((value / maxValue) * 200, 20); // Min height of 20px
+    return Math.max((value / maxValue) * 200, 20); // min height -> 20px
   };
 
   return (
@@ -292,7 +292,7 @@ const QuickSort = memo(function QuickSort() {
 
       {/* Animation */}
       <div className="bg-neutral-800 rounded-lg p-8 border border-neutral-800 flex-1 w-full">
-        {/* Header */}
+        {/* Heading */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">
             QuickSort Algorithm

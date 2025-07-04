@@ -101,7 +101,7 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
     },
   };
 
-  // Initialize towers
+  // initialize towers
   const initializeTowers = useCallback((numDisks) => {
     const newTowers = [[], [], []];
     for (let i = numDisks; i >= 1; i--) {
@@ -117,7 +117,7 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
     initializeTowers(disks);
   }, [disks, initializeTowers]);
 
-  // Tower of Hanoi solver
+  // tower of hanoi solver
   const solveTowerOfHanoi = useCallback(
     async (n, source, destination, auxiliary, moves = []) => {
       if (n === 1) {
@@ -158,7 +158,7 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
 
     setIsAnimating(true);
     initializeTowers(disks);
-    await new Promise((resolve) => setTimeout(resolve, 500)); // Initial delay
+    await new Promise((resolve) => setTimeout(resolve, 500)); // initial delay
 
     const moves = await solveTowerOfHanoi(disks, 0, 2, 1);
 
@@ -202,7 +202,7 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
 
         {/* animation */}
         <div className="bg-neutral-800 rounded-lg p-8 border border-neutral-800 w-full">
-          {/* Header */}
+          {/* Heading */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">
               Tower of Hanoi

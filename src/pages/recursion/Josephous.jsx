@@ -97,7 +97,7 @@ const JosephusProblem = memo(function JosephusProblem() {
     },
   };
 
-  // Initialize people
+  // initialize people
   const initializePeople = useCallback((numPeople) => {
     const newPeople = Array.from({ length: numPeople }, (_, i) => ({
       id: i + 1,
@@ -116,15 +116,15 @@ const JosephusProblem = memo(function JosephusProblem() {
     initializePeople(n);
   }, [n, initializePeople]);
 
-  // Calculate survivor using the mathematical formula
+  // calculate survivor
   const calculateSurvivor = (n, k) => {
     if (n === 1) return 0;
     return (calculateSurvivor(n - 1, k) + k) % n;
   };
 
   const animateStep = async (targetIndex, eliminatedPerson) => {
-    // Highlight the counting process
-    const alivePeople = people.filter((p) => !p.eliminated);
+    // highlighting the counting process
+    // const alivePeople = people.filter((p) => !p.eliminated);
 
     return new Promise((resolve) => {
       let currentIndex = currentPosition;
@@ -139,7 +139,7 @@ const JosephusProblem = memo(function JosephusProblem() {
           })),
         );
 
-        // Find next alive person
+        // find next alive person
         do {
           currentIndex = (currentIndex + 1) % people.length;
         } while (people[currentIndex].eliminated);
@@ -149,7 +149,7 @@ const JosephusProblem = memo(function JosephusProblem() {
         if (count >= k) {
           clearInterval(highlightInterval);
 
-          // Mark target for elimination
+          // mark target for eliminaton
           setPeople((prevPeople) =>
             prevPeople.map((person, index) => ({
               ...person,
@@ -159,7 +159,7 @@ const JosephusProblem = memo(function JosephusProblem() {
           );
 
           setTimeout(() => {
-            // Eliminate the person
+            // eliminate the person
             setPeople((prevPeople) =>
               prevPeople.map((person, index) => ({
                 ...person,
@@ -190,7 +190,7 @@ const JosephusProblem = memo(function JosephusProblem() {
 
     for (let round = 0; round < n - 1; round++) {
       pos = (pos + k - 1) % currentPeople.length;
-      const eliminatedPerson = currentPeople[pos] + 1; // +1 for 1-based indexing
+      const eliminatedPerson = currentPeople[pos] + 1; // +1 for 1 based index
 
       await animateStep(currentPeople[pos], eliminatedPerson);
 
@@ -200,9 +200,9 @@ const JosephusProblem = memo(function JosephusProblem() {
       await new Promise((resolve) => setTimeout(resolve, animationSpeed / 2));
     }
 
-    // Show survivor
+    // show survivor
     const survivorIndex = calculateSurvivor(n, k);
-    setSurvivor(survivorIndex + 1); // +1 for 1-based indexing
+    setSurvivor(survivorIndex + 1); // +1 -> 1 based
 
     setPeople((prevPeople) =>
       prevPeople.map((person, index) => ({
@@ -243,7 +243,7 @@ const JosephusProblem = memo(function JosephusProblem() {
 
         {/* Animation */}
         <div className="bg-neutral-800 rounded-lg p-8 border border-neutral-800 flex-1 w-full">
-          {/* Header */}
+          {/* Heading */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">
               Josephus Problem
@@ -258,7 +258,7 @@ const JosephusProblem = memo(function JosephusProblem() {
             )}
           </div>
 
-          {/* Controls */}
+          {/* controls */}
           <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
             <div className="flex items-center gap-2">
               <label className="text-white font-medium">People (n):</label>
@@ -367,7 +367,7 @@ const JosephusProblem = memo(function JosephusProblem() {
             </div>
           </div>
 
-          {/* Elimination Order */}
+          {/* elimination Order */}
           {eliminationOrder.length > 0 && (
             <div className="text-center mb-6">
               <h3 className="text-white text-lg font-semibold mb-2">
@@ -386,7 +386,7 @@ const JosephusProblem = memo(function JosephusProblem() {
             </div>
           )}
 
-          {/* Progress Bar */}
+          {/* progress bar */}
           <div className="w-full bg-neutral-700 rounded-full h-2 mb-4">
             <div
               className="bg-gradient-to-r from-white to-neutral-300 h-2 rounded-full transition-all duration-300"
@@ -394,7 +394,7 @@ const JosephusProblem = memo(function JosephusProblem() {
             />
           </div>
 
-          {/* Legend */}
+          {/* legend */}
           <div className="flex justify-center gap-6 text-sm text-neutral-300 mb-4">
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 rounded-full bg-neutral-600"></div>
@@ -414,7 +414,7 @@ const JosephusProblem = memo(function JosephusProblem() {
             </div>
           </div>
 
-          {/* Formula */}
+          {/* formula */}
           <div className="text-center text-neutral-300 text-sm">
             <p>
               The Josephus problem: n people in a circle, eliminate every k-th

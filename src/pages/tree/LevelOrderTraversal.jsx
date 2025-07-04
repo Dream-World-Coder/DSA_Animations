@@ -53,12 +53,12 @@ const TreeNode = ({
         r={radius}
         fill={
           isCurrentlyVisiting
-            ? "#FDE047" // Yellow for current
+            ? "#FDE047" // Yellow -> current
             : isInQueue
-              ? "#3B82F6" // Blue for in queue
+              ? "#3B82F6" // Blue -> in queue
               : isVisited
-                ? "#10B981" // Green for visited
-                : "#374151" // Gray for unvisited
+                ? "#10B981" // Green -> visited
+                : "#374151" // Gray -> unvisited
         }
         stroke={
           isCurrentlyVisiting
@@ -152,7 +152,7 @@ const LevelOrderTraversal = memo(function LevelOrderTraversal() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [treeType, setTreeType] = useState("balanced");
 
-  // Animation state
+  // animation states
   const [nodes, setNodes] = useState([]);
   const [queue, setQueue] = useState([]);
   const [visitedNodes, setVisitedNodes] = useState(new Set());
@@ -163,7 +163,7 @@ const LevelOrderTraversal = memo(function LevelOrderTraversal() {
 
   const timeoutRef = useRef(null);
 
-  // Tree structures
+  // tree strs
   const treeStructures = {
     balanced: {
       nodes: [
@@ -212,7 +212,6 @@ const LevelOrderTraversal = memo(function LevelOrderTraversal() {
 
     if (treeNodes.length === 0) return steps;
 
-    // Find root node (assuming it's the first one)
     const root = treeNodes[0];
     queue.push(root);
 
@@ -237,7 +236,6 @@ const LevelOrderTraversal = memo(function LevelOrderTraversal() {
         result: [...result],
       });
 
-      // Add children to queue
       const children = [];
       if (currentNode.left) {
         const leftChild = treeNodes.find((n) => n.id === currentNode.left);
@@ -555,7 +553,7 @@ def level_order_by_levels(root):
           </div>
 
           <div className="bg-black p-8 rounded-lg min-h-[600px]">
-            {/* Queue and Result visualization */}
+            {/* Queue & result visualization */}
             <div className="flex justify-center gap-8 mb-8">
               <QueueVisualization queue={queue} />
               <TraversalResult
