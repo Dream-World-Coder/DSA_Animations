@@ -238,14 +238,14 @@ const JosephusProblem = memo(function JosephusProblem() {
     <>
       <SEOData data={seoData} />
 
-      <div className="min-h-screen max-w-7xl mx-auto w-full flex flex-col items-center justify-start gap-20 py-32 px-4 bg-neutral-900">
+      <div className="min-h-screen max-w-7xl mx-auto w-full flex flex-col items-center justify-start gap-20 py-20 md:py-32 px-4 bg-neutral-900">
         <Header />
 
         {/* Animation */}
-        <div className="bg-neutral-800 rounded-lg p-8 border border-neutral-800 flex-1 w-full">
+        <div className="bg-neutral-800 rounded-lg p-4 md:p-8 border border-neutral-800 flex-1 w-full">
           {/* Heading */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-wide">
               Josephus Problem
             </h1>
             <p className="text-neutral-300 text-lg">
@@ -332,12 +332,12 @@ const JosephusProblem = memo(function JosephusProblem() {
           </div>
 
           {/* Game Board */}
-          <div className="flex justify-center items-center mb-8 bg-black p-10 rounded-lg min-h-[400px]">
+          <div className="flex justify-center items-center mb-8 bg-black p-5 md:p-10 rounded-lg min-h-[400px]">
             <div
               className="relative"
               style={{ width: "400px", height: "400px" }}
             >
-              <svg width="400" height="400" className="absolute inset-0">
+              <svg width="400" height="400" className="inset-0">
                 {people.map((person, index) => {
                   const pos = getPersonPosition(index, people.length);
                   return (

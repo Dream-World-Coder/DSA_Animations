@@ -32,7 +32,7 @@ const Description = memo(function Description({ dataObj }) {
         ></CardContent>
       )}
 
-      <CardFooter className="flex flex-col items-start">
+      <CardFooter className="flex flex-col items-start gap-2">
         {history && <p className="text-neutral-400 text-sm">{history}</p>}
         {code && (
           <div className="relative w-full overflow-auto text-sm sm:text-base rounded-md">

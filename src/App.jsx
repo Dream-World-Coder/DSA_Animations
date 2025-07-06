@@ -3,12 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Lenis from "lenis";
 import { HelmetProvider } from "react-helmet-async";
 import { Analytics } from "@vercel/analytics/react";
-import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 import HomePage from "./pages/home/Home";
 import NotFoundPage from "./pages/NotFound";
 import TopicsPage from "./components/TopicsList";
+import Footer from "./components/Footer/Footer";
 
 // array
 const KadanesAlgorithm = lazy(() => import("./pages/arrayLinkedList/Kadane"));

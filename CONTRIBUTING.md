@@ -58,14 +58,14 @@ const ComponentName = memo(function ComponentName() {
     <>
       <SEOData data={seoData} />
 
-      <div className="min-h-screen max-w-7xl mx-auto w-full flex flex-col items-center justify-start gap-20 py-32 px-0 bg-neutral-900">
+      <div className="min-h-screen max-w-7xl mx-auto w-full flex flex-col items-center justify-start gap-20 py-20 md:py-32 px-0 bg-neutral-900">
         <Header />
 
         {/* animation */}
-        <div className="bg-neutral-800 rounded-lg p-8 border border-neutral-800 w-full">
+        <div className="bg-neutral-800 rounded-lg p-4 md:p-8 border border-neutral-800 w-full">
           {/* animation Heading */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-wide">
               eg. Tower of Hanoi
             </h1>
             <p className="text-neutral-300 text-lg">
@@ -114,7 +114,7 @@ const ComponentName = memo(function ComponentName() {
           </div>
 
           {/* Game Board */}
-          <div className="flex justify-center items-end gap-8 mb-8 bg-black p-10 rounded-lg min-h-[400px]">
+          <div className="flex justify-center items-end gap-8 mb-8 bg-black p-5 md:p-10 rounded-lg min-h-[400px]">
             {/*
               *
               *

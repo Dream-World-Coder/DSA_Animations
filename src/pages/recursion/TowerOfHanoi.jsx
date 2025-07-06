@@ -20,6 +20,7 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
   const [totalSteps, setTotalSteps] = useState(0);
   const [animationSpeed, setAnimationSpeed] = useState(800);
   const [currentMove, setCurrentMove] = useState(null);
+  const towerNames = ["Source", "Auxiliary", "Destination"];
 
   const descriptionData = {
     heading: `Tower of Hanoi`,
@@ -197,14 +198,14 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
     <>
       <SEOData data={seoData} />
 
-      <div className="min-h-screen max-w-7xl mx-auto w-full flex flex-col items-center justify-start gap-20 py-32 px-0 bg-neutral-900">
+      <div className="min-h-screen max-w-7xl mx-auto w-full flex flex-col items-center justify-start gap-20 py-20 md:py-32 px-0 bg-neutral-900">
         <Header />
 
         {/* animation */}
-        <div className="bg-neutral-800 rounded-lg p-8 border border-neutral-800 w-full">
+        <div className="bg-neutral-800 rounded-lg p-4 md:p-8 border border-neutral-800 w-full">
           {/* Heading */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-wide">
               Tower of Hanoi
             </h1>
             <p className="text-neutral-300 text-lg">
@@ -262,20 +263,17 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
           </div>
 
           {/* Game Board */}
-          <div className="flex justify-center items-end gap-8 mb-8 bg-black p-10 rounded-lg min-h-[400px]">
+          <div className="flex flex-col md:flex-row justify-center items-center md:items-end gap-8 mb-8 bg-black p-5 md:p-10 rounded-lg min-h-[400px]">
             {towers.map((tower, towerIndex) => (
               <div key={towerIndex} className="flex flex-col items-center">
                 {/* Tower Label */}
                 <div className="text-white text-sm font-medium mb-2 opacity-70">
-                  Tower {String.fromCharCode(65 + towerIndex)}
+                  {towerNames[towerIndex]} Tower
                 </div>
 
                 {/* Tower Rod */}
                 <div className="relative flex flex-col-reverse items-center">
-                  <div
-                    className="bg-gradient-to-t from-white to-neutral-300 rounded-t-full shadow-lg"
-                    style={{ width: "8px", height: "300px" }}
-                  />
+                  <div className="bg-gradient-to-t from-white to-neutral-300 rounded-t-full shadow-lg w-2 h-48 md:h-80" />
 
                   {/* Base */}
                   <div

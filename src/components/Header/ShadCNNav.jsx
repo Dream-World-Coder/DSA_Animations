@@ -49,8 +49,8 @@ export const ShadCNHeader = memo(function ShadCNHeader({ abs = true }) {
     <header
       className={`${abs ? "absolute" : "fixed"} top-0 left-0 right-0 z-50 w-full bg-neutral-900 backdrop-blur-sm text-white border-b border-neutral-800`}
     >
-      <div className="container flex h-16 mx-auto items-center justify-between px-6">
-        <div className="flex items-center space-x-2">
+      <div className="container flex h-16 mx-auto items-center justify-between px-4 md:px-6">
+        <div className="flex items-center gap-2">
           <NavLink to="/" className="flex items-center space-x-2">
             <AppLogo
               width={32}
@@ -58,7 +58,9 @@ export const ShadCNHeader = memo(function ShadCNHeader({ abs = true }) {
               letterColor="#000000"
               backgroundColor="#00f900"
             />
-            <span className="font-bold text-lg">DSA Animations</span>
+            <span className="font-bold text-base md:text-lg">
+              DSA Animations
+            </span>
           </NavLink>
         </div>
 
