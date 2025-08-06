@@ -1,4 +1,4 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import {
   ChevronRight,
@@ -14,7 +14,7 @@ import { navLinks } from "../../assets/data/navLinks";
 import SEOData from "../../components/SEO";
 // import { WireframeLines } from "../../components/Decorum";
 
-const HomePage = memo(function HomePage() {
+function HomePage() {
   const [, setHoveredCard] = useState(null); // hoveredCard
   const [isVisible, setIsVisible] = useState(false);
 
@@ -331,6 +331,6 @@ const HomePage = memo(function HomePage() {
       </div>
     </>
   );
-});
+}
 
 export default HomePage;

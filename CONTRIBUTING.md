@@ -1,7 +1,6 @@
 ## Page Structure
 
 ```tsx
-import { memo } from "react";
 import {Select, SelectContent, ...} from "@/components/ui/select";
 // or
 // traditional option-select
@@ -14,7 +13,7 @@ import SpeedControls from "../../components/utils/SpeedControl";
 import Description from "../../components/utils/Description";
 import SEOData from "../../components/SEO";
 
-const ComponentName = memo(function ComponentName() {
+export default function ComponentName() {
   /**
    *
    * state variables as needed
@@ -154,9 +153,8 @@ const ComponentName = memo(function ComponentName() {
       </div>
     </>
   );
-});
+};
 
-export default ComponentName;
 ```
 
 ## Workflow

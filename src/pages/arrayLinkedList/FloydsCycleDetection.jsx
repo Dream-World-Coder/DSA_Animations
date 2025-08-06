@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Select,
   SelectContent,
@@ -225,7 +225,7 @@ const PointerStatus = ({
   </div>
 );
 
-const FloydCycleDetection = memo(function FloydCycleDetection() {
+function FloydCycleDetection() {
   const [currentStep, setCurrentStep] = useState(0);
   const [totalSteps, setTotalSteps] = useState(0);
   const [animationSpeed, setAnimationSpeed] = useState(800);
@@ -795,6 +795,6 @@ const FloydCycleDetection = memo(function FloydCycleDetection() {
       </div>
     </>
   );
-});
+}
 
 export default FloydCycleDetection;

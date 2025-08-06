@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, memo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Card,
   CardContent,
@@ -10,7 +10,7 @@ import {
 import { ShadCNHeader as Header } from "../../components/Header/ShadCNNav";
 import SpeedControls from "../../components/utils/SpeedControl";
 
-const QuickSort = memo(function QuickSort() {
+function QuickSort() {
   const [array, setArray] = useState([64, 34, 25, 12, 22, 11, 90]);
   const [originalArray, setOriginalArray] = useState([
     64, 34, 25, 12, 22, 11, 90,
@@ -508,6 +508,6 @@ const QuickSort = memo(function QuickSort() {
       </Card>
     </div>
   );
-});
+}
 
 export default QuickSort;

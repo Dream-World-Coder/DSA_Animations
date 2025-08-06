@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Select,
   SelectContent,
@@ -13,7 +13,7 @@ import SpeedControls from "../../components/utils/SpeedControl";
 import Description from "../../components/utils/Description";
 import SEOData from "../../components/SEO";
 
-const KadanesAlgorithm = memo(function KadanesAlgorithm() {
+function KadanesAlgorithm() {
   const generateRandomArray = () => {
     const length = Math.floor(Math.random() * 3) + 8; // Length between 8 and 10
     const arr = Array.from({ length }, () => {
@@ -484,6 +484,6 @@ const KadanesAlgorithm = memo(function KadanesAlgorithm() {
       </div>
     </>
   );
-});
+}
 
 export default KadanesAlgorithm;

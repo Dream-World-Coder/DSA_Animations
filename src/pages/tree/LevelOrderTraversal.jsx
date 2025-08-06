@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Select,
   SelectContent,
@@ -145,7 +145,7 @@ const TraversalResult = ({ result, currentIndex = -1 }) => (
   </div>
 );
 
-const LevelOrderTraversal = memo(function LevelOrderTraversal() {
+function LevelOrderTraversal() {
   const [currentStep, setCurrentStep] = useState(0);
   const [totalSteps, setTotalSteps] = useState(0);
   const [animationSpeed, setAnimationSpeed] = useState(800);
@@ -619,6 +619,6 @@ def level_order_by_levels(root):
       </div>
     </>
   );
-});
+}
 
 export default LevelOrderTraversal;

@@ -1,4 +1,4 @@
-import { memo, useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Select,
   SelectContent,
@@ -82,7 +82,7 @@ const ExpressionDisplay = ({ expression, currentIndex, processedPart }) => (
   </div>
 );
 
-const ExpEval = memo(function ExpEval() {
+function ExpEval() {
   const [expression, setExpression] = useState("3+4*2");
   const [currentStep, setCurrentStep] = useState(0);
   const [totalSteps, setTotalSteps] = useState(0);
@@ -598,6 +598,6 @@ def evaluate_postfix(expression):
       </div>
     </>
   );
-});
+}
 
 export default ExpEval;

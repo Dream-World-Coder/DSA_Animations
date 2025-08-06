@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, memo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Select,
   SelectContent,
@@ -12,7 +12,7 @@ import SpeedControls from "../../components/utils/SpeedControl";
 import Description from "../../components/utils/Description";
 import SEOData from "../../components/SEO";
 
-const TowerOfHanoi = memo(function TowerOfHanoi() {
+function TowerOfHanoi() {
   const [disks, setDisks] = useState(3);
   const [towers, setTowers] = useState([[], [], []]);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -351,6 +351,6 @@ const TowerOfHanoi = memo(function TowerOfHanoi() {
       </div>
     </>
   );
-});
+}
 
 export default TowerOfHanoi;

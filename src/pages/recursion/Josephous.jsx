@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, memo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Select,
   SelectContent,
@@ -12,7 +12,7 @@ import Description from "../../components/utils/Description";
 import SpeedControls from "../../components/utils/SpeedControl";
 import SEOData from "../../components/SEO";
 
-const JosephusProblem = memo(function JosephusProblem() {
+function JosephusProblem() {
   const [n, setN] = useState(7); // number of people
   const [k, setK] = useState(3); // step size
   const [people, setPeople] = useState([]);
@@ -430,6 +430,6 @@ const JosephusProblem = memo(function JosephusProblem() {
       </div>
     </>
   );
-});
+}
 
 export default JosephusProblem;
