@@ -19,7 +19,7 @@ export const navLinks = [
     dropdownElements: [
       { title: "Tower of Hanoi", href: "/tower-of-hanoi" },
       { title: "Josephus Problem", href: "/josephus-problem" },
-      { title: "Binary Search", href: "/binary-search" },
+      { title: "Merge Sort", href: "/merge-sort" },
       { title: "Quick Sort", href: "/quick-sort" },
     ],
   },

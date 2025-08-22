@@ -3,11 +3,19 @@ export const WireframeLines = ({
   left = 20,
   right = 20,
   bottom = 20,
-  width = 200,
-  height = 150,
 }) => {
   return (
-    <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 9 }}>
+    <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 9 }}>
+      {/* Dot pattern background */}
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(100,100,100,0.5) 1px, transparent 1px)",
+          backgroundSize: "20px 20px",
+        }}
+      />
+
       {/* Top horizontal line */}
       <div
         className="absolute border-t-2 border-dotted border-neutral-800"

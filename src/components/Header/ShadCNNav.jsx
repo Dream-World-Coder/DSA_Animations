@@ -105,7 +105,7 @@ export const ShadCNHeader = memo(function ShadCNHeader({ abs = true }) {
                                   dropdownItem.href,
                                   link.hrefPrefix,
                                 )}
-                                className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-neutral-800 hover:scale-[1.02] focus:bg-neutral-800 group"
+                                className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-all duration-200 hover:bg-neutral-800 focus:bg-neutral-800 group"
                                 onClick={() => setOpenDropdown(null)}
                               >
                                 <div className="text-sm font-medium leading-none text-neutral-50 group-hover:text-green-400 transition-colors">
