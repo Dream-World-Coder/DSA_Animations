@@ -33,7 +33,7 @@ const LevelOrderTraversal = lazy(
 const RedBlackTree = lazy(() => import("./pages/tree/RedBlackTree"));
 
 // backtracking
-const SubsetGen = lazy(() => import("./pages/backtracking/SubsetGen"));
+const SubsetGen = lazy(() => import("./pages/_backtracking/SubsetGen"));
 
 function App() {
   return (
