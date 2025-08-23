@@ -56,13 +56,31 @@ function HomePage() {
     <>
       <SEOData data={seoData} />
 
-      <div className="min-h-screen bg-neutral-900 text-white">
+      {/* mobile */}
+      <div className="sm:hidden">
+        <WireframeLines top={75} left={15} right={15} bottom={15} />
+      </div>
+
+      {/* desktop */}
+      <div className="hidden sm:block">
         <WireframeLines top={80} left={40} right={40} bottom={40} />
+      </div>
+
+      <div className="min-h-screen bg-neutral-900 text-white relative">
+        {/* dot pattern background */}
+        <div
+          className="absolute inset-0 opacity-40 size-full"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgba(150,150,150,0.5) 1px, transparent 1px)",
+            backgroundSize: "20px 20px",
+          }}
+        />
 
         <Header abs={false} />
 
         {/* Hero */}
-        <section className="pt-[12%] pb-16 px-6">
+        <section className="pt-[45%] sm:pt-[12%] pb-16 px-6">
           <div className="container mx-auto max-w-4xl">
             <div
               className={`text-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} pt-16`}
@@ -74,17 +92,19 @@ function HomePage() {
                 />
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-bold mb-12 bg-gradient-to-r from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent leading-tight">
-                Visualize Algorithms
+              <h1 className="text-4xl md:text-6xl font-bold mb-12 bg-gradient-to-r from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent leading-tight">
+                Visualize Algorithms,
                 <br />
-                <span className="text-green-400">Build Intuition</span>
+                <span className="bg-gradient-to-br from-lime-400 to-green-400 bg-clip-text text-transparent">
+                  Build Intuition
+                </span>
               </h1>
 
               <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto leading-relaxed">
                 Interactive Leaning Platform
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-40">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-64 sm:mb-[350px] px-6 sm:px-2">
                 <button
                   onClick={() => {
                     const explore = document.getElementById("explore");
@@ -94,10 +114,10 @@ function HomePage() {
                       });
                     }
                   }}
-                  className="group bg-green-500 text-black font-semibold px-4 py-2 cursor-pointer
+                  className="group bg-gradient-to-br from-lime-500 to-green-500 text-black font-semibold px-4 py-2 cursor-pointer
                     rounded-full transition-all duration-300"
                 >
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center justify-center gap-2">
                     Start Exploring
                     <ChevronRight
                       size={16}
@@ -107,7 +127,7 @@ function HomePage() {
                 </button>
 
                 <a
-                  href="https://github.com/Dream-World-Coder/DSA_Animations/blob/main/README.md"
+                  href="https://github.com/Dream-World-Coder/DSA_Animations/blob/main/CONTRIBUTING.md"
                   className="border border-neutral-700 hover:border-neutral-600 text-white font-semibold
                     px-4 py-2 rounded-full transition-all duration-300 hover:bg-neutral-800"
                 >
@@ -118,7 +138,7 @@ function HomePage() {
           </div>
         </section>
 
-        {/* Nav cards */}
+        {/* nav cards */}
         <section className="py-16 px-6">
           <div className="container mx-auto max-w-7xl">
             <div id="explore" className="text-center mb-12">
@@ -194,7 +214,7 @@ function HomePage() {
         </section>
 
         {/* about */}
-        <section className="py-16 px-6 bg-neutral-800/50">
+        <section className="py-16 px-6 bg-neutral-800/50 z-10 relative">
           <div className="container mx-auto max-w-4xl">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -265,7 +285,7 @@ function HomePage() {
         </section>
 
         {/* contact */}
-        <section className="py-16 px-6">
+        <section className="py-16 px-6 z-10 relative">
           <div className="container mx-auto max-w-4xl text-center">
             <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
             <p className="text-neutral-400 mb-8 max-w-2xl mx-auto">

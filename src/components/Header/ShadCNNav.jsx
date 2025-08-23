@@ -47,7 +47,7 @@ export const ShadCNHeader = memo(function ShadCNHeader({ abs = true }) {
 
   return (
     <header
-      className={`${abs ? "absolute" : "fixed"} top-0 left-0 right-0 z-50 w-full bg-neutral-900 backdrop-blur-sm text-white border-b border-neutral-800`}
+      className={`${abs ? "absolute" : "fixed"} top-[0px] left-0 right-0 z-50 w-full bg-neutral-900 backdrop-blur-sm text-white border-b border-neutral-800`}
     >
       <div className="container flex h-16 mx-auto items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-2">
