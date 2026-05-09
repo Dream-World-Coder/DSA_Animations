@@ -157,7 +157,7 @@ function HomePage() {
                     </h3>
                     <NavLink
                       to={category.hrefPrefix}
-                      className="text-green-400 hover:text-green-300 text-sm font-medium flex items-center gap-1 transition-colors"
+                      className="text-green-400 hover:text-green-300 text-sm font-medium flex items-center gap-1 transition-colors z-30"
                     >
                       View All
                       <ChevronRight size={16} />

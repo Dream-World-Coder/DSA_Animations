@@ -32,6 +32,11 @@ const LevelOrderTraversal = lazy(
 );
 const RedBlackTree = lazy(() => import("./pages/tree/RedBlackTree"));
 
+// graph
+const DFS = lazy(() => import("./pages/graph/dfs"));
+const BFS = lazy(() => import("./pages/graph/bfs"));
+const FloydWarshall = lazy(() => import("./pages/graph/floyed-warshall"));
+
 // backtracking
 const SubsetGen = lazy(() => import("./pages/backtracking/SubSetGen"));
 
@@ -99,6 +104,9 @@ function App() {
 
             {/* graph */}
             <Route path="/graph" element={<TopicsPage topicID={4} />} />
+            <Route path="/graph/bfs" element={<BFS />} />
+            <Route path="/graph/dfs" element={<DFS />} />
+            <Route path="/graph/floyd-warshall" element={<FloydWarshall />} />
 
             {/* greedy */}
             <Route path="/greedy" element={<TopicsPage topicID={5} />} />
