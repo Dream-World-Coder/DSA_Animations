@@ -36,6 +36,7 @@ const RedBlackTree = lazy(() => import("./pages/tree/RedBlackTree"));
 const DFS = lazy(() => import("./pages/graph/dfs"));
 const BFS = lazy(() => import("./pages/graph/bfs"));
 const FloydWarshall = lazy(() => import("./pages/graph/floyed-warshall"));
+const Dijkstra = lazy(() => import("./pages/graph/dijkstra"));
 
 // backtracking
 const SubsetGen = lazy(() => import("./pages/backtracking/SubSetGen"));
@@ -106,6 +107,7 @@ function App() {
             <Route path="/graph" element={<TopicsPage topicID={4} />} />
             <Route path="/graph/bfs" element={<BFS />} />
             <Route path="/graph/dfs" element={<DFS />} />
+            <Route path="/graph/dijkstra" element={<Dijkstra />} />
             <Route path="/graph/floyd-warshall" element={<FloydWarshall />} />
 
             {/* greedy */}

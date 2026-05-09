@@ -48,7 +48,7 @@ export const navLinks = [
     dropdownElements: [
       { title: "Breadh First Search", href: "/bfs" },
       { title: "Depth First Search", href: "/dfs" },
-      { title: "Dijkstra's Algorithm", href: "/dijkstra-algorithm" },
+      { title: "Dijkstra's Algorithm", href: "/dijkstra" },
       { title: "Floyd-Warshall", href: "/floyd-warshall" },
       // { title: "Minimum Spanning Tree", href: "/minimum-spanning-tree" },
     ],
