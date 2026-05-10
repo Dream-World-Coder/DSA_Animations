@@ -70,7 +70,7 @@ export const navLinks = [
     title: "Backtracking",
     hrefPrefix: "/backtracking",
     dropdownElements: [
-      // { title: "N-Queens Problem", href: "/n-queens-problem" },
+      // { title: "N-Queens Problem", href: "/n-queens" },
       // { title: "Sudoku Solver", href: "/sudoku-solver" },
       // { title: "Knight's Tour", href: "/knights-tour" },
       // { title: "Maze Solving", href: "/maze-solving" },

@@ -243,6 +243,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Documentation**: [Wiki](https://github.com/dream-world-coder/DSA_Animations/wiki)
 - **Issues**: [Issue Tracker](https://github.com/dream-world-coder/DSA_Animations/issues)
 
+
+## Disclosure
+
+used claude in: bfs, dfs, dijkstra, subset sum, floyed warshall
+
+prompt:
+gave CONTRIBUTING.md and related files. asked for any confusions and then told the algorithm name.
+
 ---
 
 <div align="center">

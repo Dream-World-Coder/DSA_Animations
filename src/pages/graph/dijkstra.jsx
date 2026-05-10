@@ -1,4 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { ShadCNHeader as Header } from "../../components/Header/ShadCNNav";
+import SpeedControls from "../../components/utils/SpeedControl";
+import Description from "../../components/utils/Description";
+import SEOData from "../../components/SEO";
 
 /* ─── Graph definition ─────────────────────────────────────────────────────── */
 const NODES = ["A", "B", "C", "D", "E", "F"];
